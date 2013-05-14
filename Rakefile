@@ -16,6 +16,10 @@ class DotFile < Struct.new(:path)
 end
 
 class Linker < Struct.new(:dot_files)
+  def self.run!(dot_files)
+    new(dot_files).run!
+  end
+
   def link_file(name)
     puts "linking ~/.#{name}"
     system %Q{ln -fs $PWD/files/#{name}.sh $HOME/.#{name}}
@@ -48,8 +52,6 @@ end
 
 desc "Symlink dotfiles to home folder"
 task :install do
-  dot_files = Dir['files/*'].map { |path| DotFile.new path }
-
-  linker = Linker.new dot_files
-  linker.run!
+  dot_files = Dir['files/*'].map &DotFile.method(:new)
+  Linker.run! dot_files
 end
