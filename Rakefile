@@ -47,7 +47,7 @@ class Linker < Struct.new(:dot_files)
 end
 
 desc "Symlink dotfiles to home folder"
-task :link do
+task :install do
   dot_files = Dir['files/*'].map { |path| DotFile.new path }
 
   linker = Linker.new dot_files
