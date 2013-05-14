@@ -1,7 +1,7 @@
-# Jon Allured's Local Dot Files
+# Jon Allured's Dot Files
 
 I use the [Hashrocket dot files](https://github.com/hashrocket/dotmatrix) and
-then add my own local over-rides with this project.
+then add my own with this project.
 
 ## Install
 
