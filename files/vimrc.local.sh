@@ -18,3 +18,5 @@ else
 endif
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
+
+map <leader>p :bufdo g/binding\.pry/d \| update<CR>
