@@ -1,3 +1,5 @@
+sharpen() { echo "- $@\n" >> ~/Projects/dotfiles/sharpener.txt }
+
 lowerpng() {
 	for file in *.PNG; do
 		mv "$file" "${file%.PNG}.png"
@@ -15,5 +17,6 @@ alias tree='git tree'
 alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
 alias leap=unicornleap
 alias herd='unicornleap -n 3'
+alias s='sharpen'
 
 eval "$(/Users/jon/hashrocket/hr/bin/hr init -)"
