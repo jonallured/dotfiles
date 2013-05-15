@@ -1,4 +1,11 @@
-sharpen() { echo "- $@\n" >> ~/Projects/dotfiles/sharpener.txt }
+sharpen() {
+	local sharpener=~/Projects/dotfiles/sharpener.txt
+	if [ $@ ]; then
+		echo "- $@\n" >> $sharpener
+	else
+		cat $sharpener
+	fi
+}
 
 lowerpng() {
 	for file in *.PNG; do
