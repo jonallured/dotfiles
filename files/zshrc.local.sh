@@ -27,3 +27,4 @@ alias herd='unicornleap -n 3'
 alias s='sharpen'
 
 eval "$(/Users/jon/hashrocket/hr/bin/hr init -)"
+eval "$(/Users/jon/Projects/jfa/bin/jfa init -)"
