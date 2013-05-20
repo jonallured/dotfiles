@@ -9,7 +9,7 @@ alias tree='git tree'
 alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
 alias leap=unicornleap
 alias herd='unicornleap -n 3'
-alias s='sharpen'
+alias s='jfa sharpen'
 
 eval "$(/Users/jon/hashrocket/hr/bin/hr init -)"
 eval "$(/Users/jon/Projects/jfa/bin/jfa init -)"
