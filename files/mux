@@ -1,3 +1,5 @@
+# vim: ft=sh
+
 tmux \
   new-window -a -d -n tests -t $name:0 \; \
   new-window -a -d -n server -t $name:0 \; \
