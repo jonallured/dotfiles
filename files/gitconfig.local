@@ -3,3 +3,5 @@
 [user]
 	name = Jon Allured
 	email = jon.allured@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
