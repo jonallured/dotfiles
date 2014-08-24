@@ -16,6 +16,7 @@ alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
 alias leap=unicornleap
 alias herd='unicornleap -n 3'
 alias s='jfa sharpen'
+alias dush='du -sh *'
 alias mm='middleman'
 alias gst='git status'
 alias swift='/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'
