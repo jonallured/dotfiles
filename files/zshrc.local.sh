@@ -16,6 +16,7 @@ alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
 alias leap=unicornleap
 alias herd='unicornleap -n 3'
 alias s='jfa sharpen'
+alias mm='middleman'
 
 eval "$(/Users/jon/hashrocket/hr/bin/hr init -)"
 eval "$(/Users/jon/code/jfa/bin/jfa init -)"
