@@ -18,6 +18,7 @@ alias herd='unicornleap -n 3'
 alias s='jfa sharpen'
 alias mm='middleman'
 alias gst='git status'
+alias swift='/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'
 
 eval "$(/Users/jon/hashrocket/hr/bin/hr init -)"
 eval "$(/Users/jon/code/jfa/bin/jfa init -)"
