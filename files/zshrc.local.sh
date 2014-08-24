@@ -17,6 +17,7 @@ alias leap=unicornleap
 alias herd='unicornleap -n 3'
 alias s='jfa sharpen'
 alias mm='middleman'
+alias gst='git status'
 
 eval "$(/Users/jon/hashrocket/hr/bin/hr init -)"
 eval "$(/Users/jon/code/jfa/bin/jfa init -)"
