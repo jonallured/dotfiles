@@ -12,3 +12,4 @@ let g:use_cursor_shapes = 1
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 map <leader>p :bufdo g/binding\.pry/d \| update<CR>
+map <leader>s 0wd0wv$hS"A do<CR>
