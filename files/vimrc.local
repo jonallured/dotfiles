@@ -1,3 +1,4 @@
+" vim:set ft=vim:
 color railscasts
 set t_Co=256
 set number
@@ -5,6 +6,8 @@ set smartcase
 set undodir=~/.undo
 
 set cursorline
+
+let g:use_cursor_shapes = 1
 
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
