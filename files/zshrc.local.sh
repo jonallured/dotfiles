@@ -22,6 +22,8 @@ alias gst='git status'
 alias swift='/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift'
 alias k='heroku'
 alias kc='heroku run console'
+alias deploy='script/deploy'
+alias hsync='script/hsync'
 
 eval "$(/Users/jon/hashrocket/hr/bin/hr init -)"
 eval "$(/Users/jon/code/jfa/bin/jfa init -)"
