@@ -1,3 +1,6 @@
+[alias]
+	mend = commit --amend
+	hard = reset --hard
 [github]
 	user = jonallured
 [user]
