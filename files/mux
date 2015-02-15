@@ -1,6 +1,6 @@
 # vim: ft=sh
 
 tmux \
-  new-window -a -d -n tests -t $name:0 \; \
-  new-window -a -d -n server -t $name:0 \; \
-  send-keys -t $name:0 'vim .' C-m
+  new-window -a -d -n tests -t $name:1 \; \
+  new-window -a -d -n server -t $name:1
+  send-keys -t $name:1 'vim .' C-m
