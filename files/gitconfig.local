@@ -8,3 +8,5 @@
 	email = jon.allured@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
+[filter "trimWhitespace"]
+	clean = git-stripspace
