@@ -5,6 +5,7 @@ c() {
 compctl -/ -S '' -W "$HOME/code" c
 
 alias ls='ls -aF'
+alias lh='ll -h'
 alias cheddar='git commit --amend -CHEAD'
 alias tree='git tree'
 alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
