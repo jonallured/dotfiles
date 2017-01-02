@@ -1,0 +1,15 @@
+bind R source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
+set -g status-left-length 30
+set -g status-right " #H | %I:%M %m/%d "
+
+# Artsy colors
+# set -g status-left "#[fg=colour255,bg=colour57] #S #[bg=colour255] "
+# set -g status-fg colour57
+# set -g status-bg colour255
+# set -g pane-active-border-fg colour57
+
+# Hashrocket colors
+set -g status-left "#[fg=colour0,bg=colour245] #S #[bg=colour124] "
+set -g status-fg colour255
+set -g status-bg colour124
+set -g pane-active-border-fg colour124
