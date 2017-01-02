@@ -22,3 +22,6 @@ alias solo='pear -u'
 
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 eval "$(/Users/jon/code/jfa/bin/jfa init -)"
+
+export GOPATH="$HOME/code/go"
+export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
