@@ -20,5 +20,5 @@ alias deploy='script/deploy'
 alias hsync='script/hsync'
 alias solo='pear -u'
 
-eval "$(/Users/jon/code/hr/bin/hr init -)"
+eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 eval "$(/Users/jon/code/jfa/bin/jfa init -)"
