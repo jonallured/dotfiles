@@ -19,6 +19,7 @@ alias s='heroku run console -r staging'
 alias deploy='script/deploy'
 alias hsync='script/hsync'
 alias solo='pear -u'
+alias big='vim ~/Documents/big_picture.md'
 
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 eval "$(/Users/jon/code/jfa/bin/jfa init -)"
