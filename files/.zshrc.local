@@ -10,8 +10,7 @@ fetchup() {
     return 1
   fi
 
-  git fetch origin
-  git fetch upstream
+  git fetch --all --quiet
   git reset --hard upstream/master
   git push origin master
 }
