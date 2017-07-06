@@ -17,6 +17,10 @@ fetchup() {
 
 compctl -/ -S '' -W "$HOME/code" c
 
+ddd() {
+  rspec --dry-run --order defined --format documentation $1
+}
+
 alias ls='ls -aF'
 alias lh='ll -h'
 alias cheddar='git commit --amend -CHEAD'
