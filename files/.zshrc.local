@@ -2,6 +2,12 @@ c() {
   cd "$HOME/code/$1"
 }
 
+compctl -/ -S '' -W "$HOME/code" c
+
+ddd() {
+  rspec --dry-run --order defined --format documentation $1
+}
+
 fetchup() {
   current_branch=$(git rev-parse --abbrev-ref HEAD)
 
@@ -13,12 +19,6 @@ fetchup() {
   git fetch --all --quiet
   git reset --hard upstream/master
   git push origin master
-}
-
-compctl -/ -S '' -W "$HOME/code" c
-
-ddd() {
-  rspec --dry-run --order defined --format documentation $1
 }
 
 gconsole() {
