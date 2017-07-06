@@ -21,6 +21,11 @@ ddd() {
   rspec --dry-run --order defined --format documentation $1
 }
 
+gconsole() {
+  environment="${1:-production}" # default to production
+  bundle exec rake ow:console[$environment]
+}
+
 alias ls='ls -aF'
 alias lh='ll -h'
 alias cheddar='git commit --amend -CHEAD'
