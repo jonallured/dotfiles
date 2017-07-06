@@ -49,3 +49,5 @@ export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
 
 export GOPATH="$HOME/code/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
+
+source ~/.zshrc.private
