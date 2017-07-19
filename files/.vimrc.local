@@ -13,7 +13,7 @@ autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile *.md setlocal spell
 
 map <leader>p :bufdo g/binding\.pry/d \| update<CR>
-map <leader>s 0wd0wv$hS"A do<CR>
+iabbrev *** puts ?**80<CR>puts<CR>puts ?**80
 
 if exists('g:loaded_pathogen')
   execute pathogen#infect('~/code/vim-plugins/{}')
