@@ -15,6 +15,12 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 map <leader>p :bufdo g/binding\.pry/d \| update<CR>
 iabbrev *** puts ?**80<CR>puts<CR>puts ?**80
 
+" spelling and completion
+autocmd BufWrite spellfile.en.add silent mkspell! %
+set spellfile=~/code/dotfiles/data/spellfile.en.add
+set dictionary=~/code/dotfiles/data/spellfile.en.add
+set complete-=k complete+=k
+
 if exists('g:loaded_pathogen')
   execute pathogen#infect('~/code/vim-plugins/{}')
 endif
