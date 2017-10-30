@@ -42,6 +42,7 @@ alias deploy='script/deploy'
 alias hsync='script/hsync'
 alias solo='pear -u'
 alias big='vim ~/Documents/big_picture.md'
+alias y='yarn'
 alias wip='git commit -m WIP'
 
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
