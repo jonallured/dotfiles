@@ -5,3 +5,4 @@ tpope/vim-classpath
 keith/swift.vim
 fatih/vim-go
 tpope/vim-scriptease
+junegunn/fzf

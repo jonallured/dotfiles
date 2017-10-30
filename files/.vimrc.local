@@ -25,3 +25,6 @@ set complete-=k complete+=k
 if exists('g:loaded_pathogen')
   execute pathogen#infect('~/code/vim-plugins/{}')
 endif
+
+map <leader>f :call fzf#run(fzf#wrap('options': '--reverse'}))<CR>
+map <leader>g :call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse'}))<CR>
