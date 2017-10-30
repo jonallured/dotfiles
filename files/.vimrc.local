@@ -28,3 +28,12 @@ endif
 
 map <leader>f :call fzf#run(fzf#wrap('options': '--reverse'}))<CR>
 map <leader>g :call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse'}))<CR>
+
+function! TryAgain()
+  let format = '"active=#{window_active} #{session_name}:#{window_index}.0"'
+  let target = system('tmux list-windows -F '.format.' | grep "active=1" | cut -d " " -f 2 | tr -d "\n"')
+  let command = 'tmux send-keys -t '.target.' C-p C-j'
+  call system(command)
+endfunction
+
+map <leader>r :call TryAgain()<CR>
