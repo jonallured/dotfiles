@@ -7,5 +7,6 @@ Plug 'keith/swift.vim'
 Plug 'tpope/vim-classpath'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-scriptease'
+Plug 'w0rp/ale'
 
 Plug '~/code/vim-plugins/vim-lab-notes'
