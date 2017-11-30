@@ -1,8 +1,11 @@
-jnwhiteh/vim-golang
-guns/vim-clojure-static
-tpope/vim-fireplace
-tpope/vim-classpath
-keith/swift.vim
-fatih/vim-go
-tpope/vim-scriptease
-junegunn/fzf
+" vim: ft=vim
+Plug 'fatih/vim-go'
+Plug 'guns/vim-clojure-static'
+Plug 'jnwhiteh/vim-golang'
+Plug 'junegunn/fzf'
+Plug 'keith/swift.vim'
+Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-scriptease'
+
+Plug '~/code/vim-plugins/vim-lab-notes'
