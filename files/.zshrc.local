@@ -53,6 +53,9 @@ export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
 export GOPATH="$HOME/code/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
 
+export NVM_DIR="/Users/jon/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 source ~/.zshrc.private
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
