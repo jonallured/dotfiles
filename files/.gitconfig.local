@@ -1,6 +1,7 @@
 [alias]
 	mend = commit --amend
 	hard = reset --hard
+	puff = put --force
 	delete-merged-branches = !git branch --merged master | grep -v -e 'master' -e '\\*' | xargs -n 1 git wipe-branch
 	wipe-branch = !git branch -d $1 && git push origin --delete
 [github]

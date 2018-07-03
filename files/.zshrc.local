@@ -45,6 +45,7 @@ alias big='vim ~/Documents/big_picture.md'
 alias y='yarn'
 alias wip='git commit -m WIP'
 alias be='bundle exec'
+alias gcom='git checkout master'
 
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 
