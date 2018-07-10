@@ -2,6 +2,18 @@ c() {
   cd "$HOME/code/$1"
 }
 
+open_rails_console() {
+  if [ -e hokusai/$1.yml ]; then
+    echo "hokusai $1 run 'bundle exec rails c' --tty"
+    hokusai $1 run 'bundle exec rails c' --tty
+  elif git config remote.$1.url > /dev/null; then
+    echo "heroku run console -r $1"
+    heroku run console -r $1
+  else
+    echo "Can't open console for $1."
+  fi
+}
+
 compctl -/ -S '' -W "$HOME/code" c
 
 ddd() {
@@ -21,11 +33,6 @@ fetchup() {
   git push origin master
 }
 
-gconsole() {
-  environment="${1:-production}" # default to production
-  bundle exec rake ow:console[$environment]
-}
-
 alias ls='ls -aF'
 alias lh='ll -h'
 alias cheddar='git commit --amend -CHEAD'
@@ -36,8 +43,8 @@ alias herd='unicornleap -n 3'
 alias dush='du -sh *'
 alias mm='middleman'
 alias k='heroku'
-alias p='heroku run console -r production'
-alias s='heroku run console -r staging'
+alias p='open_rails_console production'
+alias s='open_rails_console staging'
 alias deploy='script/deploy'
 alias hsync='script/hsync'
 alias solo='pear -u'
