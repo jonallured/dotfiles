@@ -54,6 +54,7 @@ alias wip='git commit -m WIP'
 alias be='bundle exec'
 alias gcom='git checkout master'
 alias mlipass='heroku config:get ADMIN_PASSWORD -a monolithium | pbcopy'
+alias cat='echo use bat'
 
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 
