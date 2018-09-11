@@ -9,5 +9,7 @@ Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-scriptease'
 Plug 'w0rp/ale'
 Plug 'styled-components/vim-styled-components'
+Plug 'tpope/vim-rhubarb'
+Plug 'leafgarland/typescript-vim'
 
 Plug '~/code/vim-plugins/vim-lab-notes'
