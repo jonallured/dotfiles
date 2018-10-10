@@ -55,6 +55,7 @@ alias be='bundle exec'
 alias gcom='git checkout master'
 alias mlipass='heroku config:get ADMIN_PASSWORD -a monolithium | pbcopy'
 alias cat='echo use bat'
+alias randoemails="echo 'require \"csv\"; puts Season.current.player_emails.compact.sort.to_csv.chomp' | heroku run console --no-tty | tail -n 3 | head -n 1 | pbcopy"
 
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 
