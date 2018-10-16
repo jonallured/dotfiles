@@ -5,7 +5,9 @@
 * [ ] `$ hr pluginstall`
 * [ ] `$ gem update --system`
 * [ ] cleanup desktop
-* [ ] remove screenshots
+* [ ] cleanup screenshots
+* [ ] cleanup downloads
+* [ ] empty trash
 * [ ] update alfred
 * [ ] read history to look for alias candidates
 * [ ] commit and share dotfiles changes
