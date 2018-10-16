@@ -65,6 +65,7 @@ export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
 
 export GOPATH="$HOME/code/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
+export PS1=%*$'\n'$PS1
 
 export NVM_DIR="/Users/jon/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
