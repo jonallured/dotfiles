@@ -62,6 +62,7 @@ alias rmnm="rm -rf node_modules/"
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 
 export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
+export DISABLE_SPRING=1
 
 export GOPATH="$HOME/code/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
