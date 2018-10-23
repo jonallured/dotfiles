@@ -4,6 +4,7 @@
 * [ ] `$ brew cleanup`
 * [ ] `$ hr pluginstall`
 * [ ] `$ gem update --system`
+* [ ] `$ rvm get head`
 * [ ] cleanup desktop
 * [ ] cleanup screenshots
 * [ ] cleanup downloads
