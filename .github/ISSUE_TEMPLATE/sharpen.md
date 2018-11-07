@@ -16,6 +16,7 @@
 * [ ] update list of Artsy repos
 * [ ] upgrade Xcode
 * [ ] do system updates
+* [ ] check free disk space
 * [ ] verify last backup on time machine
 * [ ] verify last backup on backblaze
 * [ ] reboot
