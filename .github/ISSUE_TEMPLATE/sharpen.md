@@ -10,6 +10,7 @@
 * [ ] cleanup downloads
 * [ ] empty trash
 * [ ] update alfred
+* [ ] update iterm2
 * [ ] read history to look for alias candidates
 * [ ] commit and share dotfiles changes
 * [ ] push changes on secrets
