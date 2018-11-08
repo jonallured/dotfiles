@@ -38,3 +38,6 @@ macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent messages"
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+
+auto_view text/html
+alternative_order text/plain text/html
