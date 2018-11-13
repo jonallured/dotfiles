@@ -33,45 +33,45 @@ fetchup() {
   git push origin master
 }
 
-alias ls='ls -aF'
-alias lh='ll -h'
-alias cheddar='git commit --amend -CHEAD'
-alias tree='git tree'
-alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
-alias leap='unicornleap'
-alias herd='unicornleap -n 3'
-alias dush='du -sh *'
-alias mm='middleman'
-alias k='heroku'
-alias p='open_rails_console production'
-alias s='open_rails_console staging'
-alias deploy='script/deploy'
-alias hsync='script/hsync'
-alias solo='pear -u'
-alias big='vim ~/Documents/big_picture.md'
-alias y='yarn'
-alias j='jay'
-alias wip='git commit -m WIP'
 alias be='bundle exec'
-alias gcom='git checkout master'
-alias mlipass='heroku config:get ADMIN_PASSWORD -a monolithium | pbcopy'
+alias big='vim ~/Documents/big_picture.md'
 alias cat='echo use bat'
+alias cheddar='git commit --amend -CHEAD'
+alias deploy='script/deploy'
+alias dush='du -sh *'
+alias gcom='git checkout master'
+alias herd='unicornleap -n 3'
+alias hsync='script/hsync'
+alias j='jay'
+alias k='heroku'
+alias leap='unicornleap'
+alias lh='ll -h'
+alias ls='ls -aF'
+alias mg="mutt -F ~/.mutt/gmail.muttrc"
+alias mlipass='heroku config:get ADMIN_PASSWORD -a monolithium | pbcopy'
+alias mm='middleman'
+alias mw="mutt -F ~/.mutt/work.muttrc"
+alias p='open_rails_console production'
 alias randoemails="echo 'require \"csv\"; puts Season.current.player_emails.compact.sort.to_csv.chomp' | heroku run console --no-tty | tail -n 3 | head -n 1 | pbcopy"
 alias rmnm="rm -rf node_modules/"
+alias s='open_rails_console staging'
+alias solo='pear -u'
+alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
+alias tree='git tree'
+alias wip='git commit -m WIP'
+alias y='yarn'
 alias ypd="yarn prettier-diff"
-alias mg="mutt -F ~/.mutt/gmail.muttrc"
-alias mw="mutt -F ~/.mutt/work.muttrc"
 
 eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
 
-export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
 export DISABLE_SPRING=1
+export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
+export NVM_DIR="/Users/jon/.nvm"
+export PS1=%*$'\n'$PS1
 
 export GOPATH="$HOME/code/go"
 export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
-export PS1=%*$'\n'$PS1
 
-export NVM_DIR="/Users/jon/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source ~/.zshrc.private
