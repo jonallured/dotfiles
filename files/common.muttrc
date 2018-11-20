@@ -4,6 +4,9 @@ source ~/.mutt/dracula/dracula.muttrc
 
 set realname = "Jonathan Allured"
 
+set date_format = "%m/%d"
+set index_format = "%2C [%Z] %D %-20.20L | %s"
+
 set sleep_time = 0
 bind pager k previous-line
 bind pager j next-line
