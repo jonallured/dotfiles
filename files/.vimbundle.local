@@ -11,5 +11,6 @@ Plug 'w0rp/ale'
 Plug 'styled-components/vim-styled-components'
 Plug 'tpope/vim-rhubarb'
 Plug 'leafgarland/typescript-vim'
+Plug 'tandrewnichols/vim-headfirst'
 
 Plug '~/code/vim-plugins/vim-lab-notes'
