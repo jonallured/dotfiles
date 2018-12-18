@@ -1,0 +1,21 @@
+# vim: ft=tmux
+
+# split the code window and start vim
+tmux split-window -h -t $name:0
+tmux select-layout -t $name:0 main-vertical
+tmux send-keys -t $name:0 'vim .' Enter
+
+# create tests window
+tmux new-window -a -d -n tests -t $name
+
+# create server window and start servers
+tmux new-window -a -d -n server -t $name
+tmux split-window -h -t $name:1
+tmux split-window -h -t $name:1
+tmux select-layout -t $name:1 even-horizontal
+tmux send-keys -t $name:1.0 'foreman start' Enter
+tmux send-keys -t $name:1.1 './bin/webpack-dev-server' Enter
+tmux send-keys -t $name:1.2 'guard' Enter
+
+# go back to code window
+tmux select-window -t $name:0
