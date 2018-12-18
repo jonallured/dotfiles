@@ -1,3 +1,5 @@
+# vim: ft=tmux
+
 bind J send-keys C-z "fg; jay done" Enter
 bind R source-file ~/.tmux.conf \; display "Reloaded ~/.tmux.conf"
 bind -T copy-mode-vi Enter send-keys -X copy-pipe 'reattach-to-user-namespace pbcopy' \; send -X clear-selection

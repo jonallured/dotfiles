@@ -2,6 +2,16 @@ c() {
   cd "$HOME/code/$1"
 }
 
+fido() {
+  if ! $(tmux has-session -t mutt &>/dev/null); then
+    cd ~
+    tmux new-session -d -s mutt
+    tmux source-file ~/code/dotfiles/tmux/mutt.conf
+  fi
+
+  tmux attach-session -t mutt
+}
+
 open_rails_console() {
   if [ -e hokusai/$1.yml ]; then
     echo "hokusai $1 run 'bundle exec rails c' --tty"
