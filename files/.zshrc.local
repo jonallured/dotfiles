@@ -47,6 +47,7 @@ alias be='bundle exec'
 alias big='vim ~/Documents/big_picture.md'
 alias cat='echo use bat'
 alias cheddar='git commit --amend -CHEAD'
+alias curl='echo use http'
 alias deploy='script/deploy'
 alias dmb="git delete-merged-branches"
 alias dush='du -sh *'
