@@ -44,7 +44,6 @@ fetchup() {
 }
 
 alias be='bundle exec'
-alias big='vim ~/Documents/big_picture.md'
 alias cat='echo use bat'
 alias cheddar='git commit --amend -CHEAD'
 alias curl='echo use http'
@@ -53,7 +52,6 @@ alias dmb="git delete-merged-branches"
 alias dush='du -sh *'
 alias gcom='git checkout master'
 alias herd='unicornleap -n 3'
-alias hsync='script/hsync'
 alias j='jay'
 alias k='heroku'
 alias leap='unicornleap'
@@ -68,8 +66,6 @@ alias r="rake"
 alias randoemails="echo 'require \"csv\"; puts Season.current.player_emails.compact.sort.to_csv.chomp' | heroku run console --no-tty | tail -n 3 | head -n 1 | pbcopy"
 alias rmnm="rm -rf node_modules/"
 alias s='open_rails_console staging'
-alias solo='pear -u'
-alias trake='rspec -t ~live -fprogress && cucumber -t~@live -prake'
 alias tree='git tree'
 alias wip='git commit -m WIP'
 alias y='yarn'
