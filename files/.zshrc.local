@@ -65,6 +65,7 @@ alias p='open_rails_console production'
 alias r="rake"
 alias randoemails="echo 'require \"csv\"; puts Season.current.player_emails.compact.sort.to_csv.chomp' | heroku run console --no-tty | tail -n 3 | head -n 1 | pbcopy"
 alias rmnm="rm -rf node_modules/"
+alias rr='cd ..; cd -; rvm current'
 alias s='open_rails_console staging'
 alias tree='git tree'
 alias wip='git commit -m WIP'
