@@ -40,7 +40,7 @@ fetchup() {
 
   git fetch --all --quiet
   git reset --hard upstream/master
-  git push origin master
+  git push origin master --no-verify
 }
 
 alias be='bundle exec'
