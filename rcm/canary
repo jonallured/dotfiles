@@ -1,0 +1,3 @@
+This file should be excluded from rcm based on the EXCLUDES flag. If it is
+symlinked, then there was a problem where the .rcrc file wasn't properly used
+to rcup.
