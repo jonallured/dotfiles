@@ -1,0 +1,60 @@
+[alias]
+	aa = add -A .
+	add-untracked = !"git status --porcelain | awk '/\\?\\?/{ print $2 }' | xargs git add"
+	aliases=!git config -l | grep '^alias' | cut -c 7- | sort
+	br = branch
+	cheddar = commit --amend -CHEAD
+	co = checkout
+	cp = cherry-pick
+	delete-merged-branches = !git branch --merged master | grep -v -e 'master' -e '\\*' | xargs -n 1 git nuke
+	doff = reset HEAD^
+	fixup = commit --fixup
+	hard = reset --hard
+	mend = commit --amend
+	nuke = !git branch -D $1 && git push origin --delete
+	pruneremote = remote prune origin
+	puff = put --force
+	put = push origin HEAD
+	reset-authors = commit --amend --reset-author -CHEAD
+	ri = rebase --interactive
+	st = status
+	tr = log --graph --oneline --decorate --color
+	tree = log --graph --oneline --decorate --color --all
+        snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+[branch]
+	autosetuprebase = always
+[color]
+	ui = auto
+[core]
+	editor = vim
+	excludesfile = ~/.global_ignore
+	whitespace = warn
+[diff]
+	algorithm = patience
+[fetch]
+	prune = true
+[filter "trimWhitespace"]
+	clean = git-stripspace
+[help]
+	autocorrect = 10
+[include]
+	path = ~/.gitconfig.local
+[interactive]
+	singlekey = true
+[github]
+	user = jonallured
+[merge]
+	summary = true
+[merge "bundlelock"]
+	name = lock Gemfile
+	driver = bundle install
+[merge "bundle"]
+	name = bundle
+	driver = bundle
+[push]
+	default = tracking
+[rebase]
+	autosquash = true
+[user]
+	name = Jon Allured
+	email = jon.allured@gmail.com
