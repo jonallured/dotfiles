@@ -22,5 +22,5 @@ files, do this:
 
 ```
 $ brew install rcm
-$ rcup -d ~/code/dotfiles/rcm
+$ env RCRC=$HOME/code/dotfiles/rcm/rcrc rcup
 ```
