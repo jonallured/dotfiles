@@ -14,3 +14,13 @@ $ rake install
 
 NOTE: this task will remove any dot files it finds, so if you don't want to lose
 what's already there, back them up before you run the task.
+
+## rcm Install
+
+I'm trying out [rcm](https://github.com/thoughtbot/rcm) so to install those
+files, do this:
+
+```
+$ brew install rcm
+$ rcup -d ~/code/dotfiles/rcm
+```
