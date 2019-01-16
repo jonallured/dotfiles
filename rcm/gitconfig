@@ -9,6 +9,7 @@
 	delete-merged-branches = !git branch --merged master | grep -v -e 'master' -e '\\*' | xargs -n 1 git nuke
 	doff = reset HEAD^
 	fixup = commit --fixup
+	fresh = branch --list --sort=-committerdate --format='%(committerdate) %(refname:short)'
 	hard = reset --hard
 	mend = commit --amend
 	nuke = !git branch -D $1 && git push origin --delete
