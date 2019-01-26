@@ -29,7 +29,7 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'pangloss/vim-javascript'
 Plug 'rondale-sc/vim-spacejam'
 Plug 'slim-template/vim-slim'
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tandrewnichols/vim-headfirst'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-bundler'
