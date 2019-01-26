@@ -1,0 +1,68 @@
+" vim: ft=vim
+
+if &compatible
+  set nocompatible
+end
+
+call plug#begin('~/.vim/bundle')
+
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ervandew/supertab'
+Plug 'exu/pgsql.vim'
+Plug 'godlygeek/tabular'
+Plug 'gregsexton/gitv'
+Plug 'hashrocket/vim-hashrocket'
+Plug 'jbranchaud/vim-bdubs'
+Plug 'jgdavey/tslime.vim'
+Plug 'jgdavey/vim-blockle'
+Plug 'jgdavey/vim-railscasts'
+Plug 'jgdavey/vim-turbux'
+Plug 'jgdavey/vim-weefactor'
+Plug 'junegunn/fzf'
+Plug 'kana/vim-textobj-user'
+Plug 'kchmck/vim-coffee-script'
+Plug 'leafgarland/typescript-vim'
+Plug 'leshill/vim-json'
+Plug 'mileszs/ack.vim'
+Plug 'mxw/vim-jsx'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'pangloss/vim-javascript'
+Plug 'rondale-sc/vim-spacejam'
+Plug 'slim-template/vim-slim'
+Plug 'styled-components/vim-styled-components'
+Plug 'tandrewnichols/vim-headfirst'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vividchalk'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/bufexplorer.zip'
+Plug 'vim-scripts/bufkill.vim'
+Plug 'w0rp/ale'
+Plug 'wgibbs/vim-irblack'
+
+Plug '~/code/vim-plugins/vim-lab-notes'
+
+" Initialize plugin system
+call plug#end()
