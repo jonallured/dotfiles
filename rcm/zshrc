@@ -7,12 +7,6 @@ fpath=(
   ~/.zsh/functions
 )
 
-if command -v hub >/dev/null; then
-  git() {
-    command hub "$@"
-  }
-fi
-
 if [ "$(uname)" = Darwin -a "$(command -v vim)" = /usr/bin/vim ]; then
   bettervim="/Applications/MacVim.app/Contents/MacOS/Vim"
   [ -f "$bettervim" ] && alias vim="$bettervim"

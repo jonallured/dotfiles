@@ -19,6 +19,7 @@ alias gcom='git checkout master'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdh='git diff HEAD'
+alias git=hub
 alias gl='git pull'
 alias glg='git log --graph --oneline --decorate --color --all'
 alias glod='git log --oneline --decorate'
