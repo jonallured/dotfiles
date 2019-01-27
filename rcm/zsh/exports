@@ -1,0 +1,21 @@
+# vim: ft=zsh
+
+# color term
+export CLICOLOR=1
+export LSCOLORS=Dxfxcxdxbxegedabadacad
+export ZLS_COLORS=$LSCOLORS
+export LC_CTYPE=en_US.UTF-8
+export LESS=FRX
+
+# default apps
+export PAGER='less'
+export EDITOR='vim'
+export PSQL_EDITOR='vim -c"setf sql"'
+
+export DISABLE_SPRING=1
+export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
+export NVM_DIR="/Users/jon/.nvm"
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=5000
+export SAVEHIST=10000
