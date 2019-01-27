@@ -1,10 +1,10 @@
 # vim: ft=zsh
 
+# zsh completions
 fpath=(
   $fpath
   ~/.rvm/scripts/zsh/Completion
   ~/.zsh/functions
-  /usr/local/share/zsh/site-functions
 )
 
 [ -e "$SOURCE_DIR" ] || SOURCE_DIR="$HOME/hashrocket"
