@@ -7,13 +7,6 @@ fpath=(
   ~/.zsh/functions
 )
 
-# color term
-export CLICOLOR=1
-export LSCOLORS=Dxfxcxdxbxegedabadacad
-export ZLS_COLORS=$LSCOLORS
-export LC_CTYPE=en_US.UTF-8
-export LESS=FRX
-
 # make with the nice completion
 autoload -U compinit; compinit
 
@@ -38,9 +31,9 @@ bindkey -e
 
 # options
 setopt appendhistory extendedglob histignoredups nonomatch prompt_subst interactivecomments
+setopt APPEND_HISTORY INC_APPEND_HISTORY
 
-# Bindings
-# external editor support
+# Bindings external editor support
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
@@ -68,34 +61,13 @@ if [ -z "$TMUX" ]; then
   bindkey -M viins "^Z" fg-widget
 fi
 
-# history
-HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=10000
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY
-
-# default apps
-(( ${+PAGER}   )) || export PAGER='less'
-(( ${+EDITOR}  )) || export EDITOR='vim'
-export PSQL_EDITOR='vim -c"setf sql"'
-
-# rvm-install added line:
+# install hooks
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
-
-export DISABLE_SPRING=1
-export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
-export NVM_DIR="/Users/jon/.nvm"
-export PS1=%*$'\n'$PS1
-
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# set cd autocompletion to commonly visited directories
-cdpath=(~ ~/src $DEV_DIR $SOURCE_DIR)
-
 source ~/code/dotfiles/rcm/zsh/aliases
+source ~/code/dotfiles/rcm/zsh/exports
 source ~/code/dotfiles/rcm/zsh/funcs
 source ~/code/dotfiles/rcm/zsh/path
 source ~/code/dotfiles/rcm/zsh/prompt
