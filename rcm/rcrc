@@ -2,4 +2,4 @@
 
 DOTFILES_DIRS="$HOME/code/dotfiles/rcm"
 EXCLUDES=canary
-SYMLINK_DIRS="bundle mutt"
+SYMLINK_DIRS="bundle mutt vim"
