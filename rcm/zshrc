@@ -1,0 +1,350 @@
+fpath=(
+  $fpath
+  ~/.rvm/scripts/zsh/Completion
+  ~/.zsh/functions
+  /usr/local/share/zsh/site-functions
+)
+
+# vim:set ft=sh sw=2 sts=2:
+
+[ -e "$SOURCE_DIR" ] || SOURCE_DIR="$HOME/hashrocket"
+export SOURCE_DIR
+
+# DEPRECATED: Use more generic SOURCE_DIR. HASHROCKET_DIR persists as a
+# legacy artifact, and for 3rd-party scripts.
+export HASHROCKET_DIR=$SOURCE_DIR
+
+# Paths for prepending
+for dir in /usr/local/bin "$HOME/bin" .git/safe/../../bin; do
+  case "$PATH:" in
+    *:"$dir":*) PATH="`echo "$PATH"|sed -e "s#:$dir##"`" ;;
+  esac
+  case "$dir" in
+    /*) [ ! -d "$dir" ] || PATH="$dir:$PATH" ;;
+    *) PATH="$dir:$PATH" ;;
+  esac
+done
+
+# Paths for appending
+for dir in /usr/local/sbin /opt/local/sbin /usr/X11/bin; do
+  case ":$PATH:" in
+    *:"$dir":*) ;;
+    *) [ ! -d "$dir" ] || PATH="$PATH:$dir" ;;
+  esac
+done
+
+if command -v hub >/dev/null; then
+  git() {
+    command hub "$@"
+  }
+fi
+
+twiki () {
+  rake db:migrate && rake db:migrate:redo && rake db:test:prepare
+}
+
+alias sc='rails console'
+alias ss='rails server'
+alias sdbc='rails dbconsole -p'
+
+alias ll='ls -l'
+
+# git_prompt_info accepts 0 or 1 arguments (i.e., format string)
+# returns text to add to bash PS1 prompt (includes branch name)
+git_prompt_info () {
+  local g="$(command git rev-parse --git-dir 2>/dev/null)"
+  if [ -n "$g" ]; then
+    local r
+    local b
+    local d
+    local s
+    # Rebasing
+    if [ -d "$g/rebase-apply" ] ; then
+      if test -f "$g/rebase-apply/rebasing" ; then
+        r="|REBASE"
+      fi
+      b="$(command git symbolic-ref HEAD 2>/dev/null)"
+    # Interactive rebase
+    elif [ -f "$g/rebase-merge/interactive" ] ; then
+      r="|REBASE-i"
+      b="$(cat "$g/rebase-merge/head-name")"
+    # Merging
+    elif [ -f "$g/MERGE_HEAD" ] ; then
+      r="|MERGING"
+      b="$(command git symbolic-ref HEAD 2>/dev/null)"
+    else
+      if [ -f "$g/BISECT_LOG" ] ; then
+        r="|BISECTING"
+      fi
+      if ! b="$(command git symbolic-ref HEAD 2>/dev/null)" ; then
+        if ! b="$(command git describe --exact-match HEAD 2>/dev/null)" ; then
+          b="$(cut -c1-7 "$g/HEAD")..."
+        fi
+      fi
+    fi
+
+    # Dirty Branch
+    local newfile='?? '
+    if [ -n "$ZSH_VERSION" ]; then
+      newfile='\?\? '
+    fi
+    d=''
+    s=$(command git status --porcelain 2> /dev/null)
+    [[ $s =~ "$newfile" ]] && d+='+'
+    [[ $s =~ "M " ]] && d+='*'
+    [[ $s =~ "D " ]] && d+='-'
+
+    printf "${1-"(%s) "}" "${b##refs/heads/}$r$d"
+  fi
+}
+
+gcr() {
+  git checkout -b $1 origin/$1
+}
+
+# git reset empty files
+gref() {
+  command git --no-pager diff --cached --stat | command grep "|\s*0$" | awk '{system("command git reset " $1)}'
+}
+
+alias gap='git add -p'
+alias gnap='git add -N --ignore-removal . && gap && gref'
+alias glp='git log -p'
+alias glg='git log --graph --oneline --decorate --color --all'
+alias gb='git branch'
+alias gc='git commit -v'
+alias gca='git commit -a -v'
+alias gcl='git clean -f -d'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdh='git diff HEAD'
+alias gl='git pull'
+alias glod='git log --oneline --decorate'
+alias gp='git push'
+alias gpr='git pull --rebase'
+alias gst='git status'
+alias gr='git rebase'
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
+alias gco='git checkout'
+alias reset-authors='git commit --amend --reset-author -C HEAD'
+alias vi='vim'
+alias grim='git rebase -i master'
+
+if [ "$(uname)" = Darwin -a "$(command -v vim)" = /usr/bin/vim ]; then
+  bettervim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  [ -f "$bettervim" ] && alias vim="$bettervim"
+  [ -f "$HOME$bettervim" ] && alias vim="$HOME$bettervim"
+fi
+
+# RVM exectuble path for scripting, when available
+if [[ -s "$HOME/.rvm/bin" ]] ; then export PATH="$PATH:$HOME/.rvm/bin" ; fi
+
+# color term
+export CLICOLOR=1
+export LSCOLORS=Dxfxcxdxbxegedabadacad
+export ZLS_COLORS=$LSCOLORS
+export LC_CTYPE=en_US.UTF-8
+export LESS=FRX
+
+# make with the nice completion
+autoload -U compinit; compinit
+
+# Completion for kill-like commands
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
+zstyle ':completion:*:ssh:*' tag-order hosts users
+zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
+
+# ignore completion functions (until the _ignored completer)
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zshcache
+
+# make with the pretty colors
+autoload colors; colors
+
+# just say no to zle vim mode:
+bindkey -e
+
+# options
+setopt appendhistory extendedglob histignoredups nonomatch prompt_subst interactivecomments
+
+# Bindings
+# external editor support
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
+# Partial word history completion
+bindkey '\ep' up-line-or-search
+bindkey '\en' down-line-or-search
+bindkey '\ew' kill-region
+
+if [ -z "$TMUX" ]; then
+  fg-widget() {
+    stty icanon echo pendin -inlcr < /dev/tty
+    stty discard '^O' dsusp '^Y' lnext '^V' quit '^\' susp '^Z' < /dev/tty
+    zle reset-prompt
+    if jobs %- >/dev/null 2>&1; then
+      fg %-
+    else
+      fg
+    fi
+  }
+
+  zle -N fg-widget
+  bindkey -M emacs "^Z" fg-widget
+  bindkey -M vicmd "^Z" fg-widget
+  bindkey -M viins "^Z" fg-widget
+fi
+
+# prompt
+p=
+if [ -n "$SSH_CONNECTION" ]; then
+  p='%{$fg_bold[yellow]%}%n@%m'
+else
+  p='%{$fg_bold[green]%}%n@%m'
+fi
+PROMPT="$p%{\$reset_color%}:%{\$fg_bold[cyan]%}%~%{\$reset_color%}\$(git_prompt_info '(%s)')%# "
+
+# show non-success exit code in right prompt
+RPROMPT="%(?..{%{$fg[red]%}%?%{$reset_color%}})"
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+
+# default apps
+(( ${+PAGER}   )) || export PAGER='less'
+(( ${+EDITOR}  )) || export EDITOR='vim'
+export PSQL_EDITOR='vim -c"setf sql"'
+
+# aliases
+alias l="ls -F -G -lah"
+alias ll="ls -l"
+alias la="ls -a"
+alias lsd='ls -ld *(-/DN)'
+alias md='mkdir -p'
+alias rd='rmdir'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias groutes='rake routes | grep $@'
+
+l.() {
+  ls -ld "${1:-$PWD}"/.[^.]*
+}
+
+# rvm-install added line:
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
+
+cuke() {
+  local file="$1"
+  shift
+  cucumber "features/$(basename $file)" $@
+}
+compctl -g '*.feature' -W features cuke
+
+c() {
+  cd "$HOME/code/$1"
+}
+
+fido() {
+  if ! $(tmux has-session -t mutt &>/dev/null); then
+    cd ~
+    tmux new-session -d -s mutt
+    tmux source-file ~/code/dotfiles/tmux/mutt.conf
+  fi
+
+  tmux attach-session -t mutt
+}
+
+open_rails_console() {
+  if [ -e hokusai/$1.yml ]; then
+    echo "hokusai $1 run 'bundle exec rails c' --tty"
+    hokusai $1 run 'bundle exec rails c' --tty
+  elif git config remote.$1.url > /dev/null; then
+    echo "heroku run console -r $1"
+    heroku run console -r $1
+  else
+    echo "Can't open console for $1."
+  fi
+}
+
+compctl -/ -S '' -W "$HOME/code" c
+
+ddd() {
+  rspec --dry-run --order defined --format documentation $1
+}
+
+fetchup() {
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+  if [ "$current_branch" != "master" ]; then
+    echo "must be on master branch"
+    return 1
+  fi
+
+  git fetch --all --quiet
+  git reset --hard upstream/master
+  git push origin master --no-verify
+}
+
+alias be='bundle exec'
+alias cat='echo use bat'
+alias cheddar='git commit --amend -CHEAD'
+alias curl='echo use http'
+alias deploy='script/deploy'
+alias dmb="git delete-merged-branches"
+alias dush='du -sh *'
+alias gcom='git checkout master'
+alias herd='unicornleap -n 3'
+alias j='jay'
+alias k='heroku'
+alias leap='unicornleap'
+alias lh='ll -h'
+alias ls='ls -aF'
+alias mg="mutt -F ~/.mutt/gmail.muttrc"
+alias mlipass='heroku config:get ADMIN_PASSWORD -a monolithium | pbcopy'
+alias mm='middleman'
+alias mw="mutt -F ~/.mutt/work.muttrc"
+alias p='open_rails_console production'
+alias r="rake"
+alias randoemails="echo 'require \"csv\"; puts Season.current.player_emails.compact.sort.to_csv.chomp' | heroku run console --no-tty | tail -n 3 | head -n 1 | pbcopy"
+alias replug="vim -c ':PlugClean | :PlugInstall | :PlugUpdate | :PlugUpgrade | qa'"
+alias rmnm="rm -rf node_modules/"
+alias rr='cd ..; cd -; rvm current'
+alias s='open_rails_console staging'
+alias tree='git tree'
+alias wip='git commit -m WIP'
+alias y='yarn'
+alias ypd="yarn prettier-diff"
+
+eval "$(/Users/jon/code/dotmatrix/hr/bin/hr init -)"
+
+export DISABLE_SPRING=1
+export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
+export NVM_DIR="/Users/jon/.nvm"
+export PS1=%*$'\n'$PS1
+
+export GOPATH="$HOME/code/go"
+export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+source ~/.zshrc.private
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# set cd autocompletion to commonly visited directories
+cdpath=(~ ~/src $DEV_DIR $SOURCE_DIR)
+
+# remove duplicates in $PATH
+typeset -aU path
+
+command -v brew > /dev/null && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh 
