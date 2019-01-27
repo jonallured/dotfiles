@@ -62,7 +62,6 @@ if [ -z "$TMUX" ]; then
 fi
 
 # install hooks
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -72,3 +71,6 @@ source ~/code/dotfiles/rcm/zsh/funcs
 source ~/code/dotfiles/rcm/zsh/path
 source ~/code/dotfiles/rcm/zsh/prompt
 source ~/.zshrc.private
+
+# RVM mutates PATH, call this after sourcing path above...
+source ~/.rvm/scripts/rvm
