@@ -1,51 +1,8 @@
 # vim: ft=zsh
 
-twiki () {
-  rake db:migrate && rake db:migrate:redo && rake db:test:prepare
-}
-
-gcr() {
-  git checkout -b $1 origin/$1
-}
-
-# git reset empty files
-gref() {
-  command git --no-pager diff --cached --stat | command grep "|\s*0$" | awk '{system("command git reset " $1)}'
-}
-
-cuke() {
-  local file="$1"
-  shift
-  cucumber "features/$(basename $file)" $@
-}
-compctl -g '*.feature' -W features cuke
-
 c() {
   cd "$HOME/code/$1"
 }
-
-fido() {
-  if ! $(tmux has-session -t mutt &>/dev/null); then
-    cd ~
-    tmux new-session -d -s mutt
-    tmux source-file ~/code/dotfiles/tmux/mutt.conf
-  fi
-
-  tmux attach-session -t mutt
-}
-
-open_rails_console() {
-  if [ -e hokusai/$1.yml ]; then
-    echo "hokusai $1 run 'bundle exec rails c' --tty"
-    hokusai $1 run 'bundle exec rails c' --tty
-  elif git config remote.$1.url > /dev/null; then
-    echo "heroku run console -r $1"
-    heroku run console -r $1
-  else
-    echo "Can't open console for $1."
-  fi
-}
-
 compctl -/ -S '' -W "$HOME/code" c
 
 ddd() {
@@ -65,6 +22,32 @@ fetchup() {
   git push origin master --no-verify
 }
 
+fido() {
+  if ! $(tmux has-session -t mutt &>/dev/null); then
+    cd ~
+    tmux new-session -d -s mutt
+    tmux source-file ~/code/dotfiles/tmux/mutt.conf
+  fi
+
+  tmux attach-session -t mutt
+}
+
 l.() {
   ls -ld "${1:-$PWD}"/.[^.]*
+}
+
+open_rails_console() {
+  if [ -e hokusai/$1.yml ]; then
+    echo "hokusai $1 run 'bundle exec rails c' --tty"
+    hokusai $1 run 'bundle exec rails c' --tty
+  elif git config remote.$1.url > /dev/null; then
+    echo "heroku run console -r $1"
+    heroku run console -r $1
+  else
+    echo "Can't open console for $1."
+  fi
+}
+
+twiki () {
+  rake db:migrate && rake db:migrate:redo && rake db:test:prepare
 }
