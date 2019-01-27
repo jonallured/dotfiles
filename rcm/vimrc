@@ -1,0 +1,145 @@
+" vim-plug list
+if &compatible
+  set nocompatible
+end
+
+call plug#begin('~/.vim/plugs')
+
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ervandew/supertab'
+Plug 'exu/pgsql.vim'
+Plug 'godlygeek/tabular'
+Plug 'gregsexton/gitv'
+Plug 'hashrocket/vim-hashrocket'
+Plug 'jbranchaud/vim-bdubs'
+Plug 'jgdavey/tslime.vim'
+Plug 'jgdavey/vim-blockle'
+Plug 'jgdavey/vim-railscasts'
+Plug 'jgdavey/vim-turbux'
+Plug 'jgdavey/vim-weefactor'
+Plug 'junegunn/fzf'
+Plug 'kana/vim-textobj-user'
+Plug 'kchmck/vim-coffee-script'
+Plug 'leafgarland/typescript-vim'
+Plug 'leshill/vim-json'
+Plug 'mileszs/ack.vim'
+Plug 'mxw/vim-jsx'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'pangloss/vim-javascript'
+Plug 'rondale-sc/vim-spacejam'
+Plug 'slim-template/vim-slim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'tandrewnichols/vim-headfirst'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-vividchalk'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/bufexplorer.zip'
+Plug 'vim-scripts/bufkill.vim'
+Plug 'w0rp/ale'
+Plug 'wgibbs/vim-irblack'
+
+Plug '~/code/vim-plugins/vim-lab-notes'
+
+" Initialize plugin system
+call plug#end()
+
+" more config...
+syntax on
+filetype plugin indent on
+
+color railscasts
+
+set cursorline
+set guifont=Monaco:h16
+set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
+set hidden
+set ignorecase
+set number
+set shell=zsh
+set smartcase
+set splitbelow
+set splitright
+set t_Co=256
+set undodir=~/.vim/undo
+set visualbell
+set wildmenu
+set wildmode=list:longest,full
+
+let g:use_cursor_shapes=1
+
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+autocmd BufRead,BufNewFile *.md setlocal spell
+
+augroup vimrc
+  autocmd!
+  autocmd GuiEnter * set columns=120 lines=70 number
+augroup END
+
+iabbrev *** puts ?**80<CR>puts<CR>puts ?**80
+
+" spelling and completion
+autocmd BufWrite spellfile.en.add silent mkspell! %
+set spellfile=~/code/dotfiles/data/spellfile.en.add
+set dictionary=~/code/dotfiles/data/spellfile.en.add
+set complete-=k complete+=k
+
+map <leader>f :call fzf#run(fzf#wrap('options': '--reverse'}))<CR>
+map <leader>g :call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse'}))<CR>
+
+function! TryAgain()
+  let format = '"active=#{window_active} #{session_name}:#{window_index}.0"'
+  let target = system('tmux list-windows -F '.format.' | grep "active=1" | cut -d " " -f 2 | tr -d "\n"')
+  let command = 'tmux send-keys -t '.target.' C-p C-j'
+  call system(command)
+endfunction
+
+map <leader>r :call TryAgain()<CR>
+
+" Plugin Configuration: {{{
+
+  " ALE: {{{
+    let g:ale_sign_error = 'X'
+    let g:ale_sign_warning = '!'
+    highlight link ALEWarningSign ErrorMsg
+    highlight link ALEErrorSign WarningMsg
+    nnoremap <silent> <leader>ne :ALENextWrap<CR>
+    nnoremap <silent> <leader>pe :ALEPreviousWrap<CR>
+
+    let g:ale_fixers = {
+          \   'javascript': ['prettier'],
+          \   'javascript.jsx': ['prettier'],
+          \   'json': ['prettier'],
+          \   'scss': ['prettier'],
+          \   'ruby': ['rubocop'],
+          \   'bash': ['shfmt'],
+          \   'zsh': ['shfmt'],
+          \   'elixir': ['mix_format'],
+          \}
+
+    let g:ale_fix_on_save = 1
+  " }}}
+
+" }}}

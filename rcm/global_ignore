@@ -1,7 +1,7 @@
 *~
 .*.sw?
-.sw?
 .DS_Store
+.netrwhist
+.sw?
 notes.txt
-/tags
-.pear
+tags
