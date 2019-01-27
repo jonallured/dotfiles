@@ -1,11 +1,11 @@
+# vim: ft=zsh
+
 fpath=(
   $fpath
   ~/.rvm/scripts/zsh/Completion
   ~/.zsh/functions
   /usr/local/share/zsh/site-functions
 )
-
-# vim:set ft=sh sw=2 sts=2:
 
 [ -e "$SOURCE_DIR" ] || SOURCE_DIR="$HOME/hashrocket"
 export SOURCE_DIR
