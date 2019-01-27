@@ -1,0 +1,70 @@
+# vim: ft=zsh
+
+twiki () {
+  rake db:migrate && rake db:migrate:redo && rake db:test:prepare
+}
+
+gcr() {
+  git checkout -b $1 origin/$1
+}
+
+# git reset empty files
+gref() {
+  command git --no-pager diff --cached --stat | command grep "|\s*0$" | awk '{system("command git reset " $1)}'
+}
+
+cuke() {
+  local file="$1"
+  shift
+  cucumber "features/$(basename $file)" $@
+}
+compctl -g '*.feature' -W features cuke
+
+c() {
+  cd "$HOME/code/$1"
+}
+
+fido() {
+  if ! $(tmux has-session -t mutt &>/dev/null); then
+    cd ~
+    tmux new-session -d -s mutt
+    tmux source-file ~/code/dotfiles/tmux/mutt.conf
+  fi
+
+  tmux attach-session -t mutt
+}
+
+open_rails_console() {
+  if [ -e hokusai/$1.yml ]; then
+    echo "hokusai $1 run 'bundle exec rails c' --tty"
+    hokusai $1 run 'bundle exec rails c' --tty
+  elif git config remote.$1.url > /dev/null; then
+    echo "heroku run console -r $1"
+    heroku run console -r $1
+  else
+    echo "Can't open console for $1."
+  fi
+}
+
+compctl -/ -S '' -W "$HOME/code" c
+
+ddd() {
+  rspec --dry-run --order defined --format documentation $1
+}
+
+fetchup() {
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+  if [ "$current_branch" != "master" ]; then
+    echo "must be on master branch"
+    return 1
+  fi
+
+  git fetch --all --quiet
+  git reset --hard upstream/master
+  git push origin master --no-verify
+}
+
+l.() {
+  ls -ld "${1:-$PWD}"/.[^.]*
+}
