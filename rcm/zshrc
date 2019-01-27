@@ -7,6 +7,8 @@ fpath=(
   ~/.zsh/functions
 )
 
+# PATH stuff
+
 # Paths for prepending
 for dir in /usr/local/bin "$HOME/bin" .git/safe/../../bin; do
   case "$PATH:" in
@@ -25,6 +27,18 @@ for dir in /usr/local/sbin /opt/local/sbin /usr/X11/bin; do
     *) [ ! -d "$dir" ] || PATH="$PATH:$dir" ;;
   esac
 done
+
+# RVM exectuble path for scripting, when available
+if [[ -s "$HOME/.rvm/bin" ]] ; then export PATH="$PATH:$HOME/.rvm/bin" ; fi
+
+export GOPATH="$HOME/code/go"
+export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
+
+# remove duplicates in $PATH
+typeset -aU path
+
+# for troubleshooting:
+# echo $PATH | tr ":" "\n" | nl
 
 if command -v hub >/dev/null; then
   git() {
@@ -129,9 +143,6 @@ if [ "$(uname)" = Darwin -a "$(command -v vim)" = /usr/bin/vim ]; then
   [ -f "$bettervim" ] && alias vim="$bettervim"
   [ -f "$HOME$bettervim" ] && alias vim="$HOME$bettervim"
 fi
-
-# RVM exectuble path for scripting, when available
-if [[ -s "$HOME/.rvm/bin" ]] ; then export PATH="$PATH:$HOME/.rvm/bin" ; fi
 
 # color term
 export CLICOLOR=1
@@ -325,9 +336,6 @@ export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
 export NVM_DIR="/Users/jon/.nvm"
 export PS1=%*$'\n'$PS1
 
-export GOPATH="$HOME/code/go"
-export PATH="$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin"
-
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 source ~/.zshrc.private
@@ -336,8 +344,5 @@ source ~/.zshrc.private
 
 # set cd autocompletion to commonly visited directories
 cdpath=(~ ~/src $DEV_DIR $SOURCE_DIR)
-
-# remove duplicates in $PATH
-typeset -aU path
 
 command -v brew > /dev/null && [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh 
