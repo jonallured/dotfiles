@@ -7,13 +7,6 @@ fpath=(
   ~/.zsh/functions
 )
 
-[ -e "$SOURCE_DIR" ] || SOURCE_DIR="$HOME/hashrocket"
-export SOURCE_DIR
-
-# DEPRECATED: Use more generic SOURCE_DIR. HASHROCKET_DIR persists as a
-# legacy artifact, and for 3rd-party scripts.
-export HASHROCKET_DIR=$SOURCE_DIR
-
 # Paths for prepending
 for dir in /usr/local/bin "$HOME/bin" .git/safe/../../bin; do
   case "$PATH:" in
