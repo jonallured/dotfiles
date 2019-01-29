@@ -6,6 +6,7 @@ end
 call plug#begin('~/.vim/plugs')
 
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'digitaltoad/vim-pug'
 Plug 'ervandew/supertab'
 Plug 'exu/pgsql.vim'
 Plug 'godlygeek/tabular'
