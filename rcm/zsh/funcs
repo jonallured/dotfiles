@@ -36,6 +36,27 @@ l.() {
   ls -ld "${1:-$PWD}"/.[^.]*
 }
 
+mux() {
+  if [ -n "$TMUX" ]; then
+    echo "ERROR: You're already in a tmux session. Nesting tmux sessions is a bad idea."
+  fi
+
+  name="$(basename $PWD | sed -e 's/\./-/g')"
+
+  if ! $(tmux has-session -t $name &>/dev/null); then
+    tmux new-session -d -s $name
+
+    conf=$HOME/code/dotfiles/tmux/$name.mux
+    if [ -f $conf ]; then
+      tmux source-file $conf
+    else
+      tmux source-file $HOME/code/dotfiles/tmux/default.mux
+    fi
+  fi
+
+  tmux attach-session -t $name
+}
+
 open_rails_console() {
   if [ -e hokusai/$1.yml ]; then
     echo "hokusai $1 run 'bundle exec rails c' --tty"
@@ -48,6 +69,6 @@ open_rails_console() {
   fi
 }
 
-twiki () {
+twiki() {
   rake db:migrate && rake db:migrate:redo && rake db:test:prepare
 }

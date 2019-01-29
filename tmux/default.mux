@@ -1,0 +1,5 @@
+# vim: ft=tmux
+
+new-window -a -d -n tests -t $name
+new-window -a -d -n server -t $name
+send-keys -t $name:0 'vim .' Enter
