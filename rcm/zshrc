@@ -62,7 +62,6 @@ if [ -z "$TMUX" ]; then
 fi
 
 # install hooks
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/code/dotfiles/rcm/zsh/aliases
@@ -72,5 +71,5 @@ source ~/code/dotfiles/rcm/zsh/path
 source ~/code/dotfiles/rcm/zsh/prompt
 source ~/.zshrc.private
 
-# RVM mutates PATH, call this after sourcing path above...
-source ~/.rvm/scripts/rvm
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
