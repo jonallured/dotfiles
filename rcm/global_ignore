@@ -3,5 +3,6 @@
 .DS_Store
 .netrwhist
 .sw?
+.tool-versions
 notes.txt
 tags
