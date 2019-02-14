@@ -25,12 +25,7 @@ case "$state" in
   ;;
   (usernames)
     if [ "$line[1]" == "current:add" ]; then
-      local usernames; usernames=(
-        'ashfurrow'
-        'orta'
-        'pepopowitz'
-        'zephraph'
-      )
+      local usernames; usernames=( $(bat ~/.pear-data | sed -n 's/.*"username": "\([^"]*\)"/\1/p' | sort -u) )
 
       _describe -t usernames 'usernames' usernames && ret=0
     fi
