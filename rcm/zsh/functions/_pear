@@ -1,0 +1,40 @@
+#compdef _pear
+
+typeset -A opt_args
+
+_arguments -C \
+  '1:cmd:->cmds' \
+  '2:username:->usernames' \
+&& ret=0
+
+case "$state" in
+  (cmds)
+    local commands; commands=(
+      'amend:amend last commit message with trailers'
+      'current:list current authors'
+      'current\:add:add current author'
+      'current\:clear:clear current authors'
+      'current\:trailer:list current authors in trailer format'
+      'help:dispaly help for pear'
+      'init:create the ~/.pear-data file'
+      'known:list the known authors'
+      'known\:add:add known author'
+    )
+
+    _describe -t commands 'command' commands && ret=0
+  ;;
+  (usernames)
+    if [ "$line[1]" == "current:add" ]; then
+      local usernames; usernames=(
+        'ashfurrow'
+        'orta'
+        'pepopowitz'
+        'zephraph'
+      )
+
+      _describe -t usernames 'usernames' usernames && ret=0
+    fi
+  ;;
+esac;
+
+return 1
