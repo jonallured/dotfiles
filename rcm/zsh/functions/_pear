@@ -3,12 +3,12 @@
 typeset -A opt_args
 
 _arguments -C \
-  '1:cmd:->cmds' \
+  '1:command:->commands' \
   '2:username:->usernames' \
 && ret=0
 
 case "$state" in
-  (cmds)
+  (commands)
     local commands; commands=(
       'amend:amend last commit message with trailers'
       'current:list current authors'
