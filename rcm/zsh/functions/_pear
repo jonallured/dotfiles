@@ -4,7 +4,7 @@ typeset -A opt_args
 
 _arguments -C \
   '1:command:->commands' \
-  '2:username:->usernames' \
+  '*:username:->usernames' \
 && ret=0
 
 case "$state" in
