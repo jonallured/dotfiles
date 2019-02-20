@@ -129,6 +129,8 @@ map <leader>r :call TryAgain()<CR>
     nnoremap <silent> <leader>ne :ALENextWrap<CR>
     nnoremap <silent> <leader>pe :ALEPreviousWrap<CR>
 
+    let g:ale_echo_msg_format = '[%linter%] %s'
+
     let g:ale_fixers = {
           \   'javascript': ['prettier'],
           \   'javascript.jsx': ['prettier'],
