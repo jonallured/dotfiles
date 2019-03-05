@@ -1,6 +1,7 @@
 * [ ] `$ brew upgrade git fzf heroku hub the_silver_searcher yarn`
 * [ ] `$ replug`
 * [ ] `$ gem update --system`
+* [ ] `$ npm install -g npm`
 * [ ] update asdf
 * [ ] cleanup desktop
 * [ ] cleanup screenshots
