@@ -12,6 +12,7 @@
 * [ ] push/pull changes on secrets
 * [ ] update list of Artsy repos
 * [ ] do App Store.app updates
+* [ ] do system updates
 * [ ] check free disk space
 * [ ] verify last backup on time machine
 * [ ] verify last backup on backblaze
