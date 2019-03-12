@@ -1,3 +1,4 @@
 rcm/bundle/cache
-rcm/vim/plugs/*
 rcm/mutt/dracula
+rcm/vim/plugs/*
+rcm/vim/undo/*
