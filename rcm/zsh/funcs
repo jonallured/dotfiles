@@ -69,6 +69,23 @@ open_rails_console() {
   fi
 }
 
+replace() {
+  target="$1"
+  shift
+  replacement="$1"
+  shift
+
+  matches=$(ag -l --nocolor "$target" "$@")
+
+  pid="$$"
+  scratch="/tmp/replace-scratch-file-$pid.txt"
+
+  IFS=$'\n'
+  for match in $matches; do
+    sed "s/$target/$replacement/g" "$match" > "$scratch" && mv "$scratch" "$match"
+  done
+}
+
 twiki() {
   rake db:migrate && rake db:migrate:redo && rake db:test:prepare
 }
