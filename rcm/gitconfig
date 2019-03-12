@@ -12,7 +12,7 @@
 	fresh = branch --list --sort=-committerdate --format='%(committerdate) %(refname:short)'
 	hard = reset --hard
 	mend = commit --amend
-	nuke = !git branch -D $1 && git push origin --delete
+	nuke = !git branch -D $1 && git push origin --delete --no-verify
 	pruneremote = remote prune origin
 	puff = put --force
 	put = push origin HEAD
