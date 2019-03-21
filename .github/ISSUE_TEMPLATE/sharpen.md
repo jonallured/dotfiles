@@ -2,7 +2,7 @@
 * [ ] `$ replug`
 * [ ] `$ gem update --system`
 * [ ] `$ npm install -g npm`
-* [ ] update asdf
+* [ ] `$ asdf update && asdf plugin-update --all`
 * [ ] cleanup desktop
 * [ ] cleanup screenshots
 * [ ] cleanup downloads
