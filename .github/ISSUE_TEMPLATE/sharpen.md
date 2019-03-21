@@ -9,6 +9,8 @@
 * [ ] empty trash
 * [ ] update alfred
 * [ ] update iterm2
+* [ ] update zeplin
+* [ ] update sketch
 * [ ] push/pull changes on dotfiles
 * [ ] push/pull changes on secrets
 * [ ] update list of Artsy repos
