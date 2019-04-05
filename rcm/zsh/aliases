@@ -50,6 +50,6 @@ alias s='open_rails_console staging'
 alias sdbc='rails dbconsole -p'
 alias tree='git tree'
 alias vi='vim'
-alias wip='git commit -m WIP'
+alias wip='git commit -m WIP --no-verify'
 alias y='yarn'
 alias ypd="yarn prettier-diff"
