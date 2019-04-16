@@ -5,6 +5,17 @@ c() {
 }
 compctl -/ -S '' -W "$HOME/code" c
 
+github_compare() {
+  current_branch=$(git symbolic-ref --quiet --short HEAD)
+
+  if [ "$current_branch" == "master" ]; then
+    echo "must be on feature branch"
+    return 1
+  fi
+
+  hub compare jonallured:$current_branch
+}
+
 ddd() {
   rspec --dry-run --order defined --format documentation $1
 }

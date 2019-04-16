@@ -15,6 +15,7 @@ alias gco='git checkout'
 alias gd="git diff -- ':!package-lock.json' ':!yarn.lock'"
 alias gdc="git diff --cached -- ':!package-lock.json' ':!yarn.lock'"
 alias git=hub
+alias ghc=github_compare
 alias gp='git push'
 alias gpr='git pull --rebase'
 alias gr='git rebase'
