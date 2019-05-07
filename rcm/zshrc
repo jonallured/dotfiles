@@ -66,7 +66,7 @@ fi
 
 source ~/code/dotfiles/rcm/zsh/aliases
 source ~/code/dotfiles/rcm/zsh/exports
-source ~/code/dotfiles/rcm/zsh/funcs
+source ~/code/dotfiles/rcm/zsh/functions
 source ~/code/dotfiles/rcm/zsh/path
 source ~/code/dotfiles/rcm/zsh/prompt
 source ~/.zshrc.private
