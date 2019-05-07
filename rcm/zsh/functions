@@ -29,8 +29,13 @@ fetchup() {
   fi
 
   git fetch --all --quiet
-  git reset --hard upstream/master
-  git push origin master --no-verify
+
+  if git remote | grep upstream; then
+    git reset --hard upstream/master
+    git push origin master --no-verify
+  else
+    git pull --rebase
+  fi
 }
 
 fido() {
