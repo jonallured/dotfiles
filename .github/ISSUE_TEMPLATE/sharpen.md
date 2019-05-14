@@ -5,6 +5,7 @@
 * [ ] `$ gem update --system`
 * [ ] `$ npm install -g npm`
 * [ ] `$ asdf update && asdf plugin-update --all`
+* [ ] `$ nuke_modules`
 
 ## Filesystem Housekeeping
 
