@@ -16,6 +16,14 @@ github_compare() {
   hub compare jonallured:$current_branch
 }
 
+nuke_modules() {
+  node_modules=$(find $HOME/code -name node_modules -type d -maxdepth 3)
+  printf '%s\n' "${node_modules[@]}"
+  total=$(echo $node_modules | xargs du -s -c -h | tail -n 1 | cut -f 1)
+  echo $node_modules | xargs rm -rf $node_modules
+  echo "$total cleaned up"
+}
+
 ddd() {
   rspec --dry-run --order defined --format documentation $1
 }
