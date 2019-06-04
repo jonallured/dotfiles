@@ -29,6 +29,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.global_ignore
+	hooksPath = ~/.git-hooks/shims
 	ignorecase = false
 	whitespace = warn
 [diff]
