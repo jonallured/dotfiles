@@ -1,10 +1,10 @@
 ## Terminal Stuff
 
-* [ ] `$ brew upgrade git fzf heroku hub the_silver_searcher yarn`
+* [ ] `$ brew upgrade bat fzf git heroku hokusai hub macvim the_silver_searcher tmux yarn`
 * [ ] `$ replug`
+* [ ] `$ asdf update && asdf plugin-update --all && asdf reshim`
 * [ ] `$ gem update --system`
 * [ ] `$ npm install -g npm`
-* [ ] `$ asdf update && asdf plugin-update --all`
 * [ ] `$ nuke_modules`
 
 ## Filesystem Housekeeping
