@@ -99,15 +99,7 @@ replace() {
   replacement="$1"
   shift
 
-  matches=$(ag -l --nocolor "$target" "$@")
-
-  pid="$$"
-  scratch="/tmp/replace-scratch-file-$pid.txt"
-
-  IFS=$'\n'
-  for match in $matches; do
-    sed "s/$target/$replacement/g" "$match" > "$scratch" && mv "$scratch" "$match"
-  done
+  ag -l --nocolor "$target" "$@" | xargs sed -i '' "s/$target/$replacement/g"
 }
 
 twiki() {
