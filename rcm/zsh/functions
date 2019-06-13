@@ -6,7 +6,7 @@ c() {
 compctl -/ -S '' -W "$HOME/code" c
 
 github_compare() {
-  current_branch=$(git symbolic-ref --quiet --short HEAD)
+  current_branch=$(git branch --show-current)
 
   if [ "$current_branch" == "master" ]; then
     echo "must be on feature branch"
@@ -29,7 +29,7 @@ ddd() {
 }
 
 fetchup() {
-  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  current_branch=$(git branch --show-current)
 
   if [ "$current_branch" != "master" ]; then
     echo "must be on master branch"
