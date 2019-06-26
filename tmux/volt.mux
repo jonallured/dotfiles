@@ -13,7 +13,7 @@ new-window -a -d -n server -t $name
 split-window -h -t $name:1
 split-window -h -t $name:1
 select-layout -t $name:1 even-horizontal
-send-keys -t $name:1.0 'bundle exec foreman start' Enter
+send-keys -t $name:1.0 'foreman start' Enter
 send-keys -t $name:1.1 './bin/webpack-dev-server' Enter
 send-keys -t $name:1.2 'bundle exec guard' Enter
 
