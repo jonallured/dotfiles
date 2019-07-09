@@ -136,3 +136,12 @@ replug() {
 twiki() {
   rake db:migrate && rake db:migrate:redo && rake db:test:prepare
 }
+
+sharp() {
+  sharpen_log="$DOTHOME/sharpen.log"
+  $DOTHOME/sharpen-script &> $sharpen_log
+  echo '+ nuke_modules' >> $sharpen_log
+  nuke_modules >> $sharpen_log
+  replug
+  jay done
+}
