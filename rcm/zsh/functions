@@ -103,7 +103,34 @@ replace() {
 }
 
 replug() {
-  vim -c ':PlugClean | :PlugInstall | :PlugUpdate | :PlugUpgrade | qa'
+  cd $DOTHOME
+
+  replug_log="replug.log"
+
+  rm -f $replug_log
+
+  echo '+ PlugClean' >> $replug_log
+  vim -c ':PlugClean | :%y* | qa'
+  pbpaste >> $replug_log
+
+  echo '+ PlugInstall' >> $replug_log
+  vim -c ':PlugInstall | :%y* | qa'
+  pbpaste >> $replug_log
+
+  echo '+ PlugUpdate' >> $replug_log
+  vim -c ':PlugUpdate | :%y* | qa'
+  pbpaste >> $replug_log
+
+  echo '+ PlugDiff' >> $replug_log
+  vim -c ':PlugDiff | :%y* | qa'
+  pbpaste >> $replug_log
+
+  echo '+ PlugUpgrade' >> $replug_log
+  vim -c ':PlugUpgrade | qa'
+  git diff rcm/vim/autoload/plug.vim >> $replug_log
+
+  echo '+ replug done' >> $replug_log
+  cd - > /dev/null
 }
 
 twiki() {
