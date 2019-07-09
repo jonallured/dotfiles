@@ -50,7 +50,7 @@ fido() {
   if ! $(tmux has-session -t mutt &>/dev/null); then
     cd ~
     tmux new-session -d -s mutt
-    tmux source-file ~/code/dotfiles/tmux/mutt.conf
+    tmux source-file $DOTHOME/tmux/mutt.conf
   fi
 
   tmux attach-session -t mutt
@@ -70,11 +70,11 @@ mux() {
   if ! $(tmux has-session -t $name &>/dev/null); then
     tmux new-session -d -s $name
 
-    conf=$HOME/code/dotfiles/tmux/$name.mux
+    conf=$DOTHOME/tmux/$name.mux
     if [ -f $conf ]; then
       tmux source-file $conf
     else
-      tmux source-file $HOME/code/dotfiles/tmux/default.mux
+      tmux source-file $DOTHOME/tmux/default.mux
     fi
   fi
 
