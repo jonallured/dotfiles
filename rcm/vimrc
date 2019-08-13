@@ -146,3 +146,5 @@ map <leader>r :call TryAgain()<CR>
   " }}}
 
 " }}}
+
+let g:turbux_command_prefix = 'bundle exec'
