@@ -4,6 +4,7 @@
 	aliases=!git config -l | grep '^alias' | cut -c 7- | sort
 	br = branch
 	cheddar = commit --amend -CHEAD
+	clean-remote = !"git remote | grep -v -e origin -e upstream | xargs -n1 git remote remove"
 	co = checkout
 	cp = cherry-pick
 	delete-merged-branches = !git branch --merged master | grep -v -e 'master' -e '\\*' | xargs -n 1 git nuke
