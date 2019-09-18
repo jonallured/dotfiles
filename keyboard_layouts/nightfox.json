@@ -490,6 +490,10 @@
         "0": {
           "key": "DELETE",
           "label": "DEL"
+        },
+        "1": {
+          "key": "#:U\"Mute\" + CONS\"Mute\"",
+          "label": "MUT"
         }
       },
       "triggers": null
