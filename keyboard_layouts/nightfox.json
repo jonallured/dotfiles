@@ -954,6 +954,10 @@
         "0": {
           "key": "SPACE",
           "label": "[ ]"
+        },
+        "1": {
+          "key": "CONS:PLAY",
+          "label": "PLAY"
         }
       },
       "triggers": null
