@@ -1,0 +1,16 @@
+# vim: ft=tmux
+
+# split the code window and start vim
+split-window -h -t $name:0
+select-layout -t $name:0 main-vertical
+send-keys -t $name:0 'vim .' Enter
+
+# create console window
+new-window -a -d -n console -t $name
+split-window -h -t $name:1
+select-layout -t $name:1 even-horizontal
+send-keys -t $name:1.0 'p' Enter
+send-keys -t $name:1.1 's' Enter
+
+# go back to code window
+select-window -t $name:0
