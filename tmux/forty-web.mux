@@ -12,13 +12,13 @@ select-layout -t $name:1 even-horizontal
 send-keys -t $name:1.0 './bin/console' Enter
 send-keys -t $name:1.1 'rails db' Enter
 
-# create server window and start services
+# create server window and start servers
 new-window -a -d -n server -t $name
 split-window -h -t $name:1
 split-window -h -t $name:1
 select-layout -t $name:1 even-horizontal
 send-keys -t $name:1.0 './bin/server' Enter
-send-keys -t $name:1.1 './bin/worker' Enter
+send-keys -t $name:1.1 './bin/webpack-dev-server' Enter
 send-keys -t $name:1.2 'bundle exec guard' Enter
 
 # go back to code window
