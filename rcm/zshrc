@@ -64,12 +64,11 @@ fi
 # install hooks
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+. /usr/local/opt/asdf/asdf.sh
+
 source ~/code/dotfiles/rcm/zsh/aliases
 source ~/code/dotfiles/rcm/zsh/exports
 source ~/code/dotfiles/rcm/zsh/functions
 source ~/code/dotfiles/rcm/zsh/path
 source ~/code/dotfiles/rcm/zsh/prompt
 source ~/.zshrc.private
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
