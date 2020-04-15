@@ -19,7 +19,7 @@ split-window -h -t $name:1
 select-layout -t $name:1 even-horizontal
 send-keys -t $name:1.0 './bin/server' Enter
 send-keys -t $name:1.1 './bin/worker' Enter
-send-keys -t $name:1.2 'bundle exec guard' Enter
+send-keys -t $name:1.2 'bundle exec guard --group livereload' Enter
 
 # go back to code window
 select-window -t $name:0
