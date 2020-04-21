@@ -1,19 +1,27 @@
 # vim: ft=tmux
 
 # split the code window and start vim
+rename-window -t $name:0 code
 split-window -h -t $name:0
 select-layout -t $name:0 main-vertical
 send-keys -t $name:0 'vim .' Enter
 
 # create console window
-new-window -a -d -n console -t $name
+new-window -a -d -n remotes -t $name
+split-window -h -t $name:1
+select-layout -t $name:1 even-horizontal
+send-keys -t $name:1.0 "hokusai staging run 'bundle exec rails console' --tty" Enter
+send-keys -t $name:1.1 "hokusai production run 'bundle exec rails console' --tty" Enter
+
+# create console window
+new-window -a -d -n consoles -t $name
 split-window -h -t $name:1
 select-layout -t $name:1 even-horizontal
 send-keys -t $name:1.0 './bin/console' Enter
 send-keys -t $name:1.1 'rails db' Enter
 
 # create server window and start services
-new-window -a -d -n server -t $name
+new-window -a -d -n servers -t $name
 split-window -h -t $name:1
 split-window -h -t $name:1
 select-layout -t $name:1 even-horizontal
