@@ -59,7 +59,7 @@ Plug 'tpope/vim-vividchalk'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'vim-scripts/bufkill.vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'wgibbs/vim-irblack'
 
 Plug '~/code/vim-plugins/vim-lab-notes'
@@ -128,19 +128,33 @@ map <leader>r :call TryAgain()<CR>
     highlight link ALEErrorSign WarningMsg
     nnoremap <silent> <leader>ne :ALENextWrap<CR>
     nnoremap <silent> <leader>pe :ALEPreviousWrap<CR>
+    nnoremap <silent> <leader>d :ALEGoToDefinition<CR>
 
     let g:ale_echo_msg_format = '[%linter%] %s'
+
+    let g:ale_linters = {
+          \   'javascript': ['prettier', 'eslint'],
+          \   'javascript.jsx': ['prettier', 'eslint'],
+          \   'json': ['prettier'],
+          \   'ruby': ['rubocop'],
+          \   'typescript': ['prettier', 'eslint', 'tsserver'],
+          \   'typescriptreact': ['prettier', 'eslint', 'tsserver'],
+          \}
+    let g:ale_linters_explicit = 1
 
     let g:ale_fixers = {
           \   'javascript': ['prettier'],
           \   'javascript.jsx': ['prettier'],
           \   'json': ['prettier'],
-          \   'scss': ['prettier'],
           \   'ruby': ['rubocop'],
-          \   'bash': ['shfmt'],
-          \   'zsh': ['shfmt'],
-          \   'elixir': ['mix_format'],
+          \   'typescript': ['prettier'],
+          \   'typescriptreact': ['prettier'],
           \}
+
+    " let g:ale_lint_on_enter = 0
+    " let g:ale_lint_on_text_changed = 'never'
+    " let g:ale_lint_on_insert_leave = 0
+    " let g:ale_lint_on_save = 1
 
     let g:ale_fix_on_save = 1
   " }}}
