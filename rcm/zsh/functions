@@ -20,6 +20,17 @@ c() {
 }
 compctl -/ -S '' -W "$HOME/code" c
 
+drill_passwords() {
+  set -ex
+  sudo echo "you did it"
+  eval $(op signin team_artsy)
+  op get account | jq .name
+  op signout --account team_artsy
+  eval $(op signin team_allured)
+  op get account | jq .name
+  op signout --account team_allured
+}
+
 github_compare() {
   current_branch=$(git branch --show-current)
 
