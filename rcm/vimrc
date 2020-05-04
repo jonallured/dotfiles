@@ -61,6 +61,7 @@ Plug 'vim-scripts/bufexplorer.zip'
 Plug 'vim-scripts/bufkill.vim'
 Plug 'dense-analysis/ale'
 Plug 'wgibbs/vim-irblack'
+Plug 'jparise/vim-graphql'
 
 Plug '~/code/vim-plugins/vim-lab-notes'
 
