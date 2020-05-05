@@ -3,6 +3,7 @@
 # zsh completions
 fpath=(
   ~/.zsh/completions
+  /usr/local/share/zsh-completions
   $fpath
 )
 
