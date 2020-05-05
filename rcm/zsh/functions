@@ -1,5 +1,23 @@
 # vim: ft=zsh
 
+something() {
+  echo $1
+  echo "woot"
+}
+
+hahaomg() {
+  asdf list ruby | xargs something
+
+  # for ruby_version in "$ruby_versions"; do
+  #   echo $ruby_version
+  #   echo "woot"
+  #   # asdf shell ruby $ruby_version
+  #   # ruby --version
+  #   # gem update --system
+  #   # gem install bundler
+  # done
+}
+
 build_react_component() {
   component_name=$1
   target_path=$2

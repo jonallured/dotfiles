@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+. /usr/local/opt/asdf/asdf.sh
+
+ruby_versions=($(asdf list ruby))
+
+for ruby_version in $ruby_versions; do
+  asdf shell ruby $ruby_version
+  ruby --version
+  gem --version
+  bundler --version
+  gem update --system
+  gem install bundler
+done
+
+node_versions=($(asdf list nodejs))
+
+for node_version in $node_versions; do
+  asdf shell nodejs $node_version
+  node --version
+  npm --version
+  npm install npm --global --quiet --no-progress
+done
