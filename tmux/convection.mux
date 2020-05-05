@@ -6,7 +6,7 @@ split-window -h -t $name:0
 select-layout -t $name:0 main-vertical
 send-keys -t $name:0 'vim .' Enter
 
-# create console window
+# create remotes window
 new-window -a -d -n remotes -t $name
 split-window -h -t $name:1
 select-layout -t $name:1 even-horizontal

@@ -5,12 +5,12 @@ split-window -h -t $name:0
 select-layout -t $name:0 main-vertical
 send-keys -t $name:0 'vim .' Enter
 
-# create console window
-new-window -a -d -n console -t $name
+# create remotes window
+new-window -a -d -n remotes -t $name
 split-window -h -t $name:1
 select-layout -t $name:1 even-horizontal
-send-keys -t $name:1.0 'p' Enter
-send-keys -t $name:1.1 's' Enter
+send-keys -t $name:1.0 's' Enter
+send-keys -t $name:1.1 'p' Enter
 
 # go back to code window
 select-window -t $name:0
