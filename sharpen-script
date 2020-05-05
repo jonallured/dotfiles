@@ -1,10 +1,8 @@
 # vim: ft=zsh
 
-set -x
+set -ex
 
-# this command will exit 1 if there are no updates so set e afterwards
 brew upgrade asdf bat fzf gh git heroku hokusai hub macvim the_silver_searcher tmux yarn zsh-completions
-set -e
 
 asdf plugin-update --all
 asdf reshim
