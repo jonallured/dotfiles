@@ -1,35 +1,33 @@
-#compdef _pear
+#compdef pear
 
-typeset -A opt_args
+_pear () {
+  local _command_id=${words[2]}
 
-_arguments -C \
-  '1:command:->commands' \
-  '*:username:->usernames' \
-&& ret=0
+  local -a _all_commands=(
+"amend:amend last commit message with trailers"
+"current:list current authors"
+"current\:add:add current author"
+"current\:clear:clear current authors"
+"current\:trailer:list current authors in trailer format"
+"init:create the ~/.pear-data file"
+"known:list known authors"
+"known\:add:add known author"
+"autocomplete:display autocomplete installation instructions"
+"help:display help for pear"
+  )
 
-case "$state" in
-  (commands)
-    local commands; commands=(
-      'amend:amend last commit message with trailers'
-      'current:list current authors'
-      'current\:add:add current author'
-      'current\:clear:clear current authors'
-      'current\:trailer:list current authors in trailer format'
-      'help:dispaly help for pear'
-      'init:create the ~/.pear-data file'
-      'known:list the known authors'
-      'known\:add:add known author'
-    )
+  _complete_commands () {
+    _describe -t all-commands "all commands" _all_commands
+  }
 
-    _describe -t commands 'command' commands && ret=0
-  ;;
-  (usernames)
-    if [ "$line[1]" == "current:add" ]; then
-      local usernames; usernames=( $(bat ~/.pear-data | sed -n 's/.*"username": "\([^"]*\)"/\1/p' | sort -u) )
-
-      _describe -t usernames 'usernames' usernames && ret=0
+  _command_args () {
+    if [ "$_command_id" == "current:add" ]; then
+      local usernames=( $(bat ~/.pear-data | sed -n 's/.*"username": "\([^"]*\)"/\1/p' | sort -u) )
+      _describe -t usernames 'usernames' usernames
     fi
-  ;;
-esac;
+  }
 
-return 1
+  _arguments -S '1: :_complete_commands' '*: :_command_args'
+}
+
+_pear
