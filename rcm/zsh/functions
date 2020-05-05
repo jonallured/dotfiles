@@ -172,3 +172,10 @@ sharp() {
   replug
   jay done
 }
+
+update_artsy_repos() {
+  cd ~/code/github_scripts
+  ruby artsy_repos.rb > ~/code/team-artsy-workflow-data/data/repos.yml
+  cd ~/code/team-artsy-workflow-data
+  git status
+}
