@@ -2,9 +2,8 @@
 
 # zsh completions
 fpath=(
-  $fpath
-  ~/.rvm/scripts/zsh/Completion
   ~/.zsh/completions
+  $fpath
 )
 
 # make with the nice completion
