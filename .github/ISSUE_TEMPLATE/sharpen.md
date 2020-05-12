@@ -11,6 +11,7 @@
 
 * [ ] cleanup desktop
 * [ ] cleanup screenshots
+* [ ] cleanup screen captures
 * [ ] cleanup downloads
 * [ ] empty trash
 
@@ -19,8 +20,7 @@
 * [ ] Alfred
 * [ ] iTerm2
 * [ ] 1Password
-* [ ] Sketch
-* [ ] Zeplin
+* [ ] Figma
 * [ ] do App Store.app updates
 * [ ] do System Updates
 
