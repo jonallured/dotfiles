@@ -21,6 +21,7 @@
 * [ ] iTerm2
 * [ ] 1Password
 * [ ] Figma
+* [ ] [Xcode][]
 * [ ] do App Store.app updates
 * [ ] do System Updates
 
@@ -37,3 +38,5 @@
 * [ ] verify last backup on time machine
 * [ ] verify last backup on backblaze
 * [ ] reboot
+
+[Xcode]: https://developer.apple.com/download/more/
