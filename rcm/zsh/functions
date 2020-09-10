@@ -21,13 +21,17 @@ c() {
 compctl -/ -S '' -W "$HOME/code" c
 
 drill_passwords() {
-  set -ex
-  sudo echo "you did it"
+  echo "laptop password"
+  sudo echo "correct"
+
+  echo "team artsy password"
   eval $(op signin team_artsy)
-  op get account | jq .name
+  [ "Artsy" == "$(op get account | jq .name | tr -d \")" ] && echo "correct"
   op signout --account team_artsy
+
+  echo "team allured password"
   eval $(op signin team_allured)
-  op get account | jq .name
+  [ "team-allured" == "$(op get account | jq .name | tr -d \")" ] && echo "correct"
   op signout --account team_allured
 }
 
