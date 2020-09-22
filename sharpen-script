@@ -2,7 +2,7 @@
 
 set -ex
 
-brew upgrade asdf bat fzf gh git heroku hokusai httpie hub macvim the_silver_searcher tmux yarn zsh-completions
+brew upgrade asdf awscli bat fzf gh git heroku hokusai httpie hub jo jq macvim the_silver_searcher tmux yarn zsh-completions
 
 asdf plugin-update --all
 asdf reshim
