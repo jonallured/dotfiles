@@ -1,6 +1,6 @@
 # vim: ft=zsh
 
-export PATH=/usr/local/sbin:/usr/local/bin:${PATH}
+export PATH=~/code/git-ensure-main/bin:/usr/local/sbin:/usr/local/bin:${PATH}
 
 # remove duplicates
 typeset -aU path
