@@ -165,7 +165,7 @@ replug() {
 }
 
 twiki() {
-  rake db:migrate && rake db:migrate:redo && rake db:test:prepare
+  bundle exec rake db:migrate && bundle exec rake db:migrate:redo && bundle exec rake db:test:prepare
 }
 
 sharp() {
