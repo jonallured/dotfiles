@@ -20,3 +20,7 @@ export NVM_DIR="/Users/jon/.nvm"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=5000
 export SAVEHIST=10000
+
+export HUSKY=0
+export HUSKY_SKIP_HOOKS=1
+export HUSKY_SKIP_INSTALL=1
