@@ -1,0 +1,19 @@
+# vim: ft=tmux
+
+# split the code window and start vim
+rename-window -t $name:0 code
+split-window -h -t $name:0
+select-layout -t $name:0 main-vertical
+send-keys -t $name:0 'vim .' Enter
+
+# create server window and start services
+new-window -a -d -n servers -t $name
+split-window -h -t $name:1
+split-window -h -t $name:1
+select-layout -t $name:1 even-horizontal
+send-keys -t $name:1.0 './bin/static_server' Enter
+send-keys -t $name:1.1 './bin/build_site' Enter
+send-keys -t $name:1.2 './bin/watch_notes' Enter
+
+# go back to code window
+select-window -t $name:0
