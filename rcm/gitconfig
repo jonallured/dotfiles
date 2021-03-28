@@ -32,7 +32,7 @@
 	excludesfile = ~/.global_ignore
 	hooksPath = ~/.git-hooks/shims
 	ignorecase = false
-	pager = "diff-so-fancy | less --tabs=4 -RFX"
+	pager = delta
 	whitespace = warn
 [diff]
 	algorithm = patience
@@ -46,6 +46,7 @@
 	path = ~/.gitconfig.local
 [interactive]
 	singlekey = true
+	diffFilter = delta --color-only
 [github]
 	user = jonallured
 [merge]
@@ -79,3 +80,12 @@
 	whitespace = red reverse
 [init]
 	defaultBranch = main
+[delta]
+	features = line-numbers decorations
+	syntax-theme = Dracula
+	whitespace-error-style = 22 reverse
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-decoration-style = cyan box ul
