@@ -63,8 +63,6 @@ Plug 'dense-analysis/ale'
 Plug 'wgibbs/vim-irblack'
 Plug 'jparise/vim-graphql'
 
-Plug '~/code/vim-plugins/vim-lab-notes'
-
 " Initialize plugin system
 call plug#end()
 
