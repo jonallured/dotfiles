@@ -13,9 +13,7 @@ export EDITOR='vim'
 export PSQL_EDITOR='vim -c"setf sql"'
 
 export DISABLE_SPRING=1
-export DOTHOME="/Users/jon/code/dotfiles"
-export LAB_NOTES_HOME="/Users/jon/code/lab_notes"
-export NVM_DIR="/Users/jon/.nvm"
+export DOTHOME="$HOME/code/dotfiles"
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=5000
