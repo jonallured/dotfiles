@@ -43,6 +43,9 @@ bindkey '\ep' up-line-or-search
 bindkey '\en' down-line-or-search
 bindkey '\ew' kill-region
 
+# Do local config
+source ~/.zshrc.local
+
 if [ -z "$TMUX" ]; then
   fg-widget() {
     stty icanon echo pendin -inlcr < /dev/tty

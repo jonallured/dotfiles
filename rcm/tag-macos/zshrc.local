@@ -1,0 +1,2 @@
+# eval shell env for homebrew
+eval $(/usr/local/bin/brew shellenv)
