@@ -74,4 +74,4 @@ source ~/code/dotfiles/rcm/zsh/path
 source ~/code/dotfiles/rcm/zsh/prompt
 source ~/.zshrc.private
 
-. /usr/local/opt/asdf/asdf.sh
+. $HOMEBREW_PREFIX/opt/asdf/asdf.sh
