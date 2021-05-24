@@ -1,9 +1,14 @@
 # vim: ft=zsh
 
 pear_prompt_info() {
-  grep '"current": \[\]' ~/.pear-data > /dev/null
-  if [ $? -ne 0 ]; then
-    echo "🍐 "
+  pear_file=~/.pear-data
+
+  if [ -f "$pear_file" ]; then
+    grep -s '"current": \[\]' $pear_file > /dev/null
+
+    if [ $? -ne 0 ]; then
+      echo "🍐 "
+    fi
   fi
 }
 
