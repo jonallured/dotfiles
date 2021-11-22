@@ -2,7 +2,6 @@
 
 alias be='bundle exec'
 alias cheddar='git commit --amend -CHEAD'
-alias curl='echo use http'
 alias dmb="git delete-merged-branches"
 alias dush='du -sh *'
 alias fup='fetchup'
