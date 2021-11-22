@@ -9,5 +9,3 @@ asdf reshim
 
 gem update --system
 npm install --global npm
-
-op update
