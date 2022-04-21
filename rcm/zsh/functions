@@ -35,6 +35,11 @@ drill_passwords() {
   op signout --account team_allured
 }
 
+get_k8s_token() {
+  cluster_id=$(kubectl config get-clusters | grep kubernetes-production)
+  aws-iam-authenticator token --cluster-id $cluster_id --role $K8S_ROLE --token-only
+}
+
 github_compare() {
   current_branch=$(git branch --show-current)
 
