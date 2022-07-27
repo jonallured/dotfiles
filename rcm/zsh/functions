@@ -36,8 +36,7 @@ drill_passwords() {
 }
 
 get_k8s_token() {
-  cluster_id=$(kubectl config get-clusters | grep kubernetes-production)
-  aws-iam-authenticator token --cluster-id $cluster_id --role $K8S_ROLE --token-only
+  aws-iam-authenticator token --cluster-id $K8S_CLUSTER_ID --role $K8S_ROLE --token-only
 }
 
 github_compare() {
