@@ -2,6 +2,7 @@
 
 alias be='bundle exec'
 alias cheddar='git commit --amend -CHEAD'
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window'
 alias dush='du -sh *'
 alias fup='fetchup'
 alias gap='git add -p'
@@ -26,7 +27,7 @@ alias ll='ls -l'
 alias ls='ls -aF'
 alias mlipass='heroku config:get ADMIN_PASSWORD -a monolithium | pbcopy'
 alias mm='middleman'
-alias ox="open Artsy.xcworkspace"
+alias ox="fd -e xcodeproj -e xcworkspace -d 1 | tail -1 | xargs open"
 alias p='open_rails_console production'
 alias reset-authors='git commit --amend --reset-author -C HEAD'
 alias rmnm="rm -rf node_modules/"

@@ -89,3 +89,8 @@
 	file-style = bold yellow ul
 	file-decoration-style = none
 	hunk-header-decoration-style = cyan box ul
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
