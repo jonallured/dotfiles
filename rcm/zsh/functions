@@ -119,8 +119,8 @@ mux() {
 
 open_rails_console() {
   if [ -e hokusai/$1.yml ]; then
-    echo "hokusai $1 run 'bundle exec rails c' --tty"
-    hokusai $1 run 'bundle exec rails c' --tty --env MONGODB_SOCKET_TIMEOUT=300
+    echo "hokusai $1 run 'bundle exec rails c -- --nomultiline' --tty"
+    hokusai $1 run 'bundle exec rails c -- --nomultiline' --tty --env MONGODB_SOCKET_TIMEOUT=300
   elif git config remote.$1.url > /dev/null; then
     echo "heroku run console -r $1"
     heroku run console -r $1
