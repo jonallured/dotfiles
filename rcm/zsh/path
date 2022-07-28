@@ -1,10 +1,9 @@
 # vim: ft=zsh
 
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-
-export PATH=~/code/git-ensure-main/bin:${PATH}
+export PATH=$PATH:$HOME/Library/Android/sdk/emulator
+export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+export PATH=$PATH:$HOME/code/unicornleap/bin
+export PATH=$PATH:$HOME/code/git-ensure-main/bin
 
 # remove duplicates
 typeset -aU path
