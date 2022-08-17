@@ -51,6 +51,10 @@ get_k8s_token() {
   aws-iam-authenticator token --cluster-id $K8S_CLUSTER_ID --role $K8S_ROLE --token-only
 }
 
+generate_junk_email_addy() {
+  echo jon.allured+$(date +%s)@gmail.com | pbcopy
+}
+
 github_compare() {
   current_branch=$(git branch --show-current)
 
