@@ -2,6 +2,7 @@
 
 alias be='bundle exec'
 alias cheddar='git commit --amend -CHEAD'
+alias credit='bundle exec rails credentials:edit'
 alias dush='du -sh *'
 alias fup='fetchup'
 alias gap='git add -p'
