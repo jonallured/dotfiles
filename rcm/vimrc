@@ -135,7 +135,7 @@ map <leader>r :call TryAgain()<CR>
           \   'javascript': ['prettier', 'eslint'],
           \   'javascript.jsx': ['prettier', 'eslint'],
           \   'json': ['prettier'],
-          \   'ruby': ['rubocop'],
+          \   'ruby': ['standardrb'],
           \   'typescript': ['prettier', 'eslint', 'tsserver'],
           \   'typescriptreact': ['prettier', 'eslint', 'tsserver'],
           \}
@@ -145,7 +145,7 @@ map <leader>r :call TryAgain()<CR>
           \   'javascript': ['prettier'],
           \   'javascript.jsx': ['prettier'],
           \   'json': ['prettier'],
-          \   'ruby': ['rubocop'],
+          \   'ruby': ['standardrb'],
           \   'typescript': ['prettier'],
           \   'typescriptreact': ['prettier'],
           \}
