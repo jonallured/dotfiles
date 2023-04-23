@@ -1,0 +1,24 @@
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host domino
+  Hostname domino.jon.zone
+  User dev
+
+Host juggernaut
+  Hostname juggernaut.local
+  User jon
+
+Host mister-sinister
+  Hostname mister-sinister.local
+  User jon
+
+Host psylocke
+  Hostname psylocke.jon.zone
+  User dev
+
+Host sabretooth
+  Hostname sabretooth.local
+  User jon
