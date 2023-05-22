@@ -11,6 +11,7 @@
 	put = push origin HEAD
 	tr = log --graph --oneline --decorate --color
 	tree = log --graph --oneline --decorate --color --all
+	wip = commit --message WIP --no-verify
 [branch]
 	autosetuprebase = always
 [color]

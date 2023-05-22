@@ -34,5 +34,5 @@ alias rmnm="rm -rf node_modules/"
 alias rr='cd ..; cd -; asdf current'
 alias s='open_rails_console staging'
 alias tree='git tree'
-alias wip='git commit -m WIP --no-verify'
+alias wip='git wip'
 alias y='yarn'
