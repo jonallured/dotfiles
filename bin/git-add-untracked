@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# for troubleshooting:
+# set -x
+
+git rev-parse --is-inside-work-tree > /dev/null
+
+untracked_files=$(git ls-files --others --exclude-standard)
+git add $untracked_files
