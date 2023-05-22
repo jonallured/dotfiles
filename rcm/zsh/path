@@ -3,7 +3,7 @@
 export PATH=$PATH:$HOME/Library/Android/sdk/emulator
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 export PATH=$PATH:$HOME/code/unicornleap/bin
-export PATH=$PATH:$HOME/code/git-ensure-main/bin
+export PATH=$PATH:$HOME/code/dotfiles/bin
 
 # remove duplicates
 typeset -aU path
