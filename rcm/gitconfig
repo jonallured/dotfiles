@@ -1,6 +1,5 @@
 [alias]
 	aa = add -A .
-	add-untracked = !"git status --porcelain | awk '/\\?\\?/{ print $2 }' | xargs git add"
 	aliases=!git config -l | grep '^alias' | cut -c 7- | sort
 	br = branch
 	cheddar = commit --amend -CHEAD
