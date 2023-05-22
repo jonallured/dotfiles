@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# for troubleshooting:
+# set -x
+
+git rev-parse --is-inside-work-tree > /dev/null
+
+current_branch=$(git branch --show-current)
+
+if [ $current_branch != "main" ]; then
+  echo "ERROR: must be on main branch"
+  exit 1
+fi
