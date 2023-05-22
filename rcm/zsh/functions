@@ -65,13 +65,7 @@ ddd() {
 }
 
 fetchup() {
-  current_branch=$(git branch --show-current)
-
-  if [ "$current_branch" != "main" ]; then
-    echo "must be on main branch"
-    return 1
-  fi
-
+  git ensure-main || return $?
   git fetch --all --quiet
 
   if git remote | grep upstream; then
