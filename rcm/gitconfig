@@ -1,5 +1,5 @@
 [alias]
-	aliases=!git config -l | grep '^alias' | cut -c 7- | sort
+	aliases=!git config --get-regexp '^alias' | cut -c 7- | sort
 	cheddar = commit --amend -CHEAD
 	cp = cherry-pick
 	doff = reset HEAD^
