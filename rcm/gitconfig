@@ -47,7 +47,8 @@
 	name = bundle
 	driver = bundle
 [push]
-	default = tracking
+	autoSetupRemote = true
+	default = upstream
 [rebase]
 	autosquash = true
 [user]

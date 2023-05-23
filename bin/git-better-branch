@@ -18,9 +18,3 @@ fi
 if [ $current_branch != $branch_name ]; then
   git checkout $branch_name --quiet
 fi
-
-upstream_name=$(git for-each-ref --format='%(upstream:short)' refs/heads/$branch_name)
-
-if [ "$upstream_name" == "" ]; then
-  git push --quiet --set-upstream origin $branch_name &> /dev/null
-fi
