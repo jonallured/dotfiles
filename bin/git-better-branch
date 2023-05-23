@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# for troubleshooting:
+# set -x
+
+git rev-parse --is-inside-work-tree > /dev/null
+
+current_branch=$(git branch --show-current)
+fallback_name=temp-$(date +%s)
+branch_name=${1:-$fallback_name}
+
+if ! git show-ref refs/heads/$branch_name --quiet --verify; then
+  git branch $branch_name
+fi
+
+if [ $current_branch != $branch_name ]; then
+  git checkout $branch_name --quiet
+fi
+
+upstream_name=$(git for-each-ref --format='%(upstream:short)' refs/heads/$branch_name)
+
+if [ "$upstream_name" == "" ]; then
+  git push --quiet --set-upstream origin $branch_name &> /dev/null
+fi
