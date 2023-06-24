@@ -53,7 +53,7 @@
 	autosquash = true
 [user]
 	name = Jon Allured
-	email = jon.allured@gmail.com
+	email = jon@jonallured.com
 [credential]
 	helper = osxkeychain
 [color "diff-highlight"]
