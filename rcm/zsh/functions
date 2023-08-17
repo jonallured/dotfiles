@@ -33,7 +33,12 @@ drill_passwords() {
 }
 
 get_k8s_token() {
-  aws-iam-authenticator token --cluster-id $K8S_CLUSTER_ID --role $K8S_ROLE --token-only
+  if [ "$1" == "" ]; then
+    echo "must specify production or staging"
+    return 1
+  fi
+  cluster_id=$([ "$1" == "production" ] && echo "$K8S_PRODUCTION_CLUSTER_ID" || echo "$K8S_STAGING_CLUSTER_ID")
+  aws-iam-authenticator token --cluster-id $cluster_id --role $K8S_ROLE --token-only
 }
 
 generate_junk_email_addy() {
