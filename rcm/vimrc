@@ -108,6 +108,7 @@ set complete-=k complete+=k
 
 map <leader>f :call fzf#run(fzf#wrap('options': '--reverse'}))<CR>
 map <leader>g :call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse'}))<CR>
+map , @@
 
 function! TryAgain()
   let format = '"active=#{window_active} #{session_name}:#{window_index}.0"'
