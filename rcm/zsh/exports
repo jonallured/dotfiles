@@ -24,3 +24,4 @@ export HUSKY_SKIP_HOOKS=1
 export HUSKY_SKIP_INSTALL=1
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HEROKU_APP=monolithium
