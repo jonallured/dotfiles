@@ -3,5 +3,6 @@ rcm/mutt/dracula
 rcm/mutt/tmp
 rcm/vim/plugs/*
 rcm/vim/undo/*
+rcm/zsh/exports
 replug.log
 sharpen.log
