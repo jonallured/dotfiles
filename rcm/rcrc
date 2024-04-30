@@ -1,5 +1,5 @@
 # vim: ft=sh
 
-DOTFILES_DIRS="$HOME/code/dotfiles/rcm $HOME/code/secrets/rcm"
-EXCLUDES=canary
+DOTFILES_DIRS="$HOME/code/dotfiles/rcm"
+EXCLUDES="canary rcm/zsh/exports.template"
 SYMLINK_DIRS="bundle vim zsh"

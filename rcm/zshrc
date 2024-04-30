@@ -72,7 +72,6 @@ source ~/code/dotfiles/rcm/zsh/exports
 source ~/code/dotfiles/rcm/zsh/functions
 source ~/code/dotfiles/rcm/zsh/path
 source ~/code/dotfiles/rcm/zsh/prompt
-source ~/.zshrc.private
 
 . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
