@@ -1,3 +1,0 @@
-application/pdf; ~/.mutt/open_file.sh %s
-text/html; ~/.mutt/open_file.sh %s; nametemplate=%s.html
-image/png; ~/.mutt/open_file.sh %s

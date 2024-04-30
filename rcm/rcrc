@@ -2,4 +2,4 @@
 
 DOTFILES_DIRS="$HOME/code/dotfiles/rcm $HOME/code/secrets/rcm"
 EXCLUDES=canary
-SYMLINK_DIRS="bundle mutt mutt-private vim zsh"
+SYMLINK_DIRS="bundle vim zsh"
