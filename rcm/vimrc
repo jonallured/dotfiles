@@ -99,7 +99,7 @@ augroup vimrc
   autocmd GuiEnter * set columns=120 lines=70 number
 augroup END
 
-iabbrev *** puts ?**80<CR>puts<CR>puts ?**80
+iabbrev *** puts "*" * 80<CR>puts<CR>puts "*" * 80
 
 " spelling and completion
 autocmd BufWrite spellfile.en.add silent mkspell! %
