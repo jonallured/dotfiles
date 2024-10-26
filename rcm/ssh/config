@@ -15,6 +15,10 @@ Host mister-sinister
   Hostname mister-sinister.local
   User jon
 
+Host polaris
+  Hostname polaris.local
+  User dev
+
 Host psylocke
   Hostname psylocke.jon.zone
   User dev
