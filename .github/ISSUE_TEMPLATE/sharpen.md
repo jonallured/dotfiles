@@ -11,17 +11,15 @@
 
 * [ ] cleanup desktop
 * [ ] cleanup screenshots
-* [ ] cleanup screen captures
 * [ ] cleanup downloads
 * [ ] empty trash
 
 ## Check for Updates
 
-* [ ] Alfred
+* [ ] Raycast
 * [ ] iTerm2
 * [ ] 1Password
 * [ ] Figma
-* [ ] Sketch
 * [ ] [Xcode][]
 * [ ] do App Store.app updates
 * [ ] do System Updates
@@ -30,13 +28,11 @@
 
 * [ ] push/pull changes on dotfiles
 * [ ] push/pull changes on notes
-* [ ] push/pull changes on secrets
 * [ ] update list of Artsy repos
 
 ## Finishing Up
 
 * [ ] check free disk space
-* [ ] verify last backup on time machine
 * [ ] reboot
 
 [Xcode]: https://developer.apple.com/download/more/
