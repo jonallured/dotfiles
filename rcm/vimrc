@@ -120,6 +120,13 @@ endfunction
 
 map <leader>r :call TryAgain()<CR>
 
+" for Gravity
+let g:projectionist_heuristics = {
+      \ "app/api/v1/root_endpoint.rb": {
+      \   "app/api/v1/*_endpoint.rb": {"type": "endpoint"},
+      \   "app/api/v1/root_endpoint.rb": {"type": "endpoint"}
+      \ }}
+
 " Plugin Configuration: {{{
 
   " ALE: {{{
