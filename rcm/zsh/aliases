@@ -1,6 +1,6 @@
 # vim: ft=zsh
 
-alias b='bundle exec'
+alias be='bundle exec'
 alias cheddar='git cheddar'
 alias credit='bundle exec rails credentials:edit'
 alias fup='fetchup'
@@ -29,6 +29,7 @@ alias leap='unicornleap'
 alias lh='ll -h'
 alias ll='ls -l'
 alias ls='ls -aF'
+alias main='git checkout main'
 alias mm='middleman'
 alias ox="open ios/Artsy.xcworkspace"
 alias p='open_rails_console production'
