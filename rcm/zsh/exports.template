@@ -17,11 +17,9 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=5000
 export SAVEHIST=10000
 
-# Artsy AWS setup
+# AWS setup
 export AWS_ACCESS_KEY_ID="op://Personal/zsh-private-exports/AWS_ACCESS_KEY_ID"
-export AWS_DEFAULT_REGION="op://Personal/zsh-private-exports/AWS_DEFAULT_REGION"
 export AWS_SECRET_ACCESS_KEY="op://Personal/zsh-private-exports/AWS_SECRET_ACCESS_KEY"
-export AWS_USER="op://Personal/zsh-private-exports/AWS_USER"
 
 # duplicate vars for legacy tools
 export AWS_ID=$AWS_ACCESS_KEY_ID
@@ -38,8 +36,4 @@ export HUSKY=0
 export HUSKY_SKIP_HOOKS=1
 export HUSKY_SKIP_INSTALL=1
 export JAY_GH_TOKEN="op://Personal/zsh-private-exports/JAY_GH_TOKEN"
-export K8S_PRODUCTION_CLUSTER_ID="op://Personal/zsh-private-exports/K8S_PRODUCTION_CLUSTER_ID"
-export K8S_ROLE="op://Personal/zsh-private-exports/K8S_ROLE"
-export K8S_STAGING_CLUSTER_ID="op://Personal/zsh-private-exports/K8S_STAGING_CLUSTER_ID"
 export MLI_CLIENT_TOKEN="op://Personal/zsh-private-exports/MLI_CLIENT_TOKEN"
-export OPSGENIE_API_KEY="op://Personal/zsh-private-exports/OPSGENIE_API_KEY"
