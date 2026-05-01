@@ -34,7 +34,6 @@ alias mm='middleman'
 alias ox="open ios/Artsy.xcworkspace"
 alias p='open_rails_console production'
 alias rmnm="rm -rf node_modules/"
-alias rr='cd ..; cd -; asdf current'
 alias s='open_rails_console staging'
 alias tree='git tree'
 alias wip='git wip'
