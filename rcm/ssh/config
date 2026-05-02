@@ -7,8 +7,8 @@ Host domino
   Hostname domino.jon.zone
   User dev
 
-Host juggernaut
-  Hostname juggernaut.local
+Host legion
+  Hostname legion.local
   User jon
 
 Host mister-sinister
@@ -23,6 +23,6 @@ Host psylocke
   Hostname psylocke.jon.zone
   User dev
 
-Host sabretooth
-  Hostname sabretooth.local
+Host shadow-king
+  Hostname shadow-king.local
   User jon
