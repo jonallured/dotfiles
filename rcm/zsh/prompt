@@ -1,17 +1,5 @@
 # vim: ft=zsh
 
-pear_prompt_info() {
-  pear_file=~/.pear-data
-
-  if [ -f "$pear_file" ]; then
-    grep -s '"current": \[\]' $pear_file > /dev/null
-
-    if [ $? -ne 0 ]; then
-      echo "🍐 "
-    fi
-  fi
-}
-
 # git_prompt_info accepts 0 or 1 arguments (i.e., format string)
 # returns text to add to bash PS1 prompt (includes branch name)
 git_prompt_info () {
@@ -68,7 +56,7 @@ if [ -n "$SSH_CONNECTION" ]; then
 else
   p='%{$fg_bold[green]%}%n@%m'
 fi
-PROMPT="\$(pear_prompt_info)$p%{\$reset_color%}:%{\$fg_bold[cyan]%}%~%{\$reset_color%}\$(git_prompt_info '(%s)')%# "
+PROMPT="$p%{\$reset_color%}:%{\$fg_bold[cyan]%}%~%{\$reset_color%}\$(git_prompt_info '(%s)')%# "
 
 # show non-success exit code in right prompt
 RPROMPT="%(?..{%{$fg[red]%}%?%{$reset_color%}})"

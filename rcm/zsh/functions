@@ -5,66 +5,6 @@ c() {
 }
 compctl -/ -S '' -W "$HOME/code" c
 
-clone_artsy_repo() {
-  if [[ "$PWD" != "$HOME/code" ]]; then
-    echo "must be at $HOME/code"
-    return 1
-  fi
-
-  project_name=$1
-  git clone git@github.com:jonallured/$project_name.git
-  cd $project_name
-  git remote add upstream git@github.com:artsy/$project_name.git
-}
-
-drill_passwords() {
-  echo "laptop password"
-  sudo echo "correct"
-
-  echo "team artsy password"
-  eval $(op signin team_artsy)
-  [ "Artsy" == "$(op get account | jq .name | tr -d \")" ] && echo "correct"
-  op signout --account team_artsy
-
-  echo "team allured password"
-  eval $(op signin team_allured)
-  [ "team-allured" == "$(op get account | jq .name | tr -d \")" ] && echo "correct"
-  op signout --account team_allured
-}
-
-get_k8s_token() {
-  if [ "$1" == "" ]; then
-    echo "must specify production or staging"
-    return 1
-  fi
-  cluster_id=$([ "$1" == "production" ] && echo "$K8S_PRODUCTION_CLUSTER_ID" || echo "$K8S_STAGING_CLUSTER_ID")
-  aws-iam-authenticator token --cluster-id $cluster_id --role $K8S_ROLE --token-only
-}
-
-generate_junk_email_addy() {
-  echo jon.allured+$(date +%s)@gmail.com | pbcopy
-}
-
-github_compare() {
-  current_branch=$(git branch --show-current)
-
-  if [ "$current_branch" == "master" ]; then
-    echo "must be on feature branch"
-    return 1
-  fi
-
-  hub compare jonallured:$current_branch
-}
-
-nuke_modules() {
-  allow_list="jay|convection|forty-web|volt"
-  node_modules=$(find $HOME/code -name node_modules -type d -maxdepth 3 | egrep -v $allow_list)
-  printf '%s\n' "${node_modules[@]}"
-  total=$(echo $node_modules | xargs du -s -c -h | tail -n 1 | cut -f 1)
-  echo $node_modules | xargs rm -rf
-  echo "$total cleaned up"
-}
-
 ddd() {
   bundle exec rspec --dry-run --order defined --format documentation $1
 }
@@ -104,18 +44,6 @@ mux() {
   fi
 
   tmux attach-session -t $name
-}
-
-open_rails_console() {
-  if [ -e hokusai/$1.yml ]; then
-    echo "hokusai $1 run 'bundle exec rails c -- --nomultiline' --tty"
-    hokusai $1 run 'bundle exec rails c -- --nomultiline' --tty --env MONGODB_SOCKET_TIMEOUT=300
-  elif git config remote.$1.url > /dev/null; then
-    echo "heroku run console -r $1"
-    heroku run console -r $1
-  else
-    echo "Can't open console for $1."
-  fi
 }
 
 replace() {
@@ -165,15 +93,6 @@ twiki() {
 sharp() {
   sharpen_log="$DOTHOME/sharpen.log"
   $DOTHOME/sharpen-script &> $sharpen_log
-  echo '+ nuke_modules' >> $sharpen_log
-  nuke_modules >> $sharpen_log
   replug
   jay done
-}
-
-update_artsy_repos() {
-  cd ~/code/github_scripts
-  ruby artsy_repos.rb > ~/code/team-artsy-workflow-data/data/repos.yml
-  cd ~/code/team-artsy-workflow-data
-  git status
 }
