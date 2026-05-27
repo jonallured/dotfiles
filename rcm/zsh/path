@@ -6,6 +6,3 @@ export PATH=$PATH:$HOME/code/dotfiles/bin
 
 # remove duplicates
 typeset -aU path
-
-# for troubleshooting:
-# echo $PATH | tr ":" "\n" | nl
