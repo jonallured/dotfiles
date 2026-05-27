@@ -65,9 +65,9 @@ pathlist() {
 }
 
 replace() {
-  target="$1"
+  local target="$1"
   shift
-  replacement="$1"
+  local replacement="$1"
   shift
 
   ag -l --nocolor "$target" "$@" | xargs sed -i '' "s/$target/$replacement/g"
@@ -76,7 +76,7 @@ replace() {
 replug() {
   cd $DOTHOME
 
-  replug_log="replug.log"
+  local replug_log="replug.log"
 
   rm -f $replug_log
 
@@ -109,7 +109,7 @@ twiki() {
 }
 
 sharp() {
-  sharpen_log="$DOTHOME/sharpen.log"
+  local sharpen_log="$DOTHOME/sharpen.log"
   $DOTHOME/sharpen-script &> $sharpen_log
   replug
   jay done
