@@ -1,5 +1,10 @@
 # vim: ft=tmux
 
-new-window -a -d -n tests -t $name
-new-window -a -d -n server -t $name
+rename-window -t $name:0 code
+split-window -h -t $name:0
+select-layout -t $name:0 main-vertical
 send-keys -t $name:0 'vim .' Enter
+
+new-window -a -d -n server -t $name
+
+select-window -t $name:0
