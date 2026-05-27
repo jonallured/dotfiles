@@ -46,6 +46,10 @@ mux() {
   tmux attach-session -t $name
 }
 
+pathlist() {
+  echo $PATH | tr ":" "\n" | nl
+}
+
 replace() {
   target="$1"
   shift
