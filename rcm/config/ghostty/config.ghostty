@@ -1,7 +1,7 @@
 cursor-style = "block"
 cursor-style-blink = "false"
 font-family = "Menlo Regular"
-font-size = "13"
+font-size = "14"
 link-url = "true"
 macos-non-native-fullscreen = "padded-notch"
 macos-option-as-alt = "true"
