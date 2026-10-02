@@ -1,8 +1,11 @@
 # vim: ft=zsh
 
 export PATH=$HOME/.asdf/shims:$PATH
-export PATH=$PATH:$HOME/code/unicornleap/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/Library/pnpm/bin
 export PATH=$PATH:$HOME/code/dotfiles/bin
+export PATH=$PATH:$HOME/code/taskmaster/bin
+export PATH=$PATH:$HOME/code/unicornleap/bin
 
 # remove duplicates
 typeset -aU path
