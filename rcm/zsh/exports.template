@@ -28,3 +28,4 @@ export HEROKU_APP=monolithium
 export HOMEBREW_NO_AUTO_UPDATE=1
 export JAY_GH_TOKEN="op://Personal/zsh-private-exports/JAY_GH_TOKEN"
 export MLI_CLIENT_TOKEN="op://Personal/zsh-private-exports/MLI_CLIENT_TOKEN"
+export TASKMASTER_MODE=personal
