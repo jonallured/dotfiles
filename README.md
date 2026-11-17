@@ -22,6 +22,10 @@ dotfiles. It uses the `rcrc` file to install all dotfiles, including the `rcrc`
 file itself. All subsequent commands use this configuration file, so it no
 longer has to be provided.
 
+## AWS
+
+`~/.aws/config` reads its keys from 1Password via `bin/aws-op-creds`.
+
 ## Install on a server
 
 I use tags to modify my dotfiles slightly for a Mac vs Server environment so

@@ -1,0 +1,10 @@
+#!/bin/zsh
+set -euo pipefail
+
+export OP_BIOMETRIC_UNLOCK_ENABLED=true
+
+key_id=$(op read "op://Private/aws-jon-s3/access_key_id")
+secret=$(op read "op://Private/aws-jon-s3/secret_access_key")
+
+jq -n --arg id "$key_id" --arg secret "$secret" \
+  '{Version: 1, AccessKeyId: $id, SecretAccessKey: $secret}'
