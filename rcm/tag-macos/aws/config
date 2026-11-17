@@ -1,0 +1,3 @@
+[default]
+region = us-east-1
+credential_process = /Users/jon/code/dotfiles/bin/aws-op-creds
