@@ -25,39 +25,17 @@ l.() {
   ls -ld "${1:-$PWD}"/.[^.]*
 }
 
-bux() {
-  sux dotfiles $HOME/code/dotfiles
-  sux jay $HOME/code/jay
-  sux jonallured.com $HOME/code/jonallured.com
-  sux mli $HOME/code/mli
-  sux monolithium $HOME/code/monolithium
-  sux shrt $HOME/code/shrt
-
-  [ -n "$TMUX" ] && echo "ERROR: Already in tmux session, skipping attach." && return 1
-  tmux attach-session -t dotfiles
-}
-
 mux() {
-  local session_name=$(basename $PWD)
-  local start_directory=$PWD
-  sux $session_name $start_directory
+  local session_name=${$(basename $PWD)//./-}
+
+  if ! tmux has-session -t "=$session_name" &>/dev/null; then
+    local config_file=$DOTHOME/tmux/$session_name.mux
+    [ -f "$config_file" ] || config_file=$DOTHOME/tmux/default.mux
+    tmux new-session -d -s $session_name -c "$PWD" \; source-file "$config_file"
+  fi
 
   [ -n "$TMUX" ] && echo "ERROR: Already in tmux session, skipping attach." && return 1
-  tmux attach-session -t $session_name
-}
-
-sux() {
-  local session_name=${1//./-}
-  local start_directory=$2
-
-  if ! tmux has-session -t $session_name &>/dev/null; then
-    tmux new-session -d -s $session_name -c $start_directory
-
-    local config_file=$DOTHOME/tmux/$session_name.mux
-    [ -f $config_file ] || config_file=$DOTHOME/tmux/default.mux
-    tmux set-environment -t $session_name mux_name $session_name
-    tmux source-file $config_file
-  fi
+  tmux attach-session -t "=$session_name"
 }
 
 pathlist() {
