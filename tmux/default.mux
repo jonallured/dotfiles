@@ -1,9 +1,9 @@
 # vim: ft=tmux
 
-rename-window -t $mux_name:0 code
-split-window -h -c "#{pane_current_path}" -t $mux_name:0
-send-keys -t $mux_name:0 'vim .' Enter
+rename-window -t :0 code
+split-window -h -c "#{pane_current_path}" -t :0
+send-keys -t :0 'vim .' Enter
 
-new-window -a -d -n server -c "#{pane_current_path}" -t $mux_name:0
+new-window -a -d -n server -c "#{pane_current_path}" -t :0
 
-select-window -t $mux_name:0
+select-window -t :0
