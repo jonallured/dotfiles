@@ -15,14 +15,6 @@ These apply in every project.
   it prints. A scoped credential set up for the agent's work is fine to use
   directly.
 
-## Git
-
-- `push.default` is `upstream`, so a branch cut from `origin/main` pushes
-  straight to `main`. Cut branches with `--no-track`, push with
-  `git push -u origin HEAD:refs/heads/<branch>`, and check
-  `git config branch.<branch>.merge` isn't `refs/heads/main` before the first
-  push.
-
 ## Machine config
 
 - Shell and tool config lives in `~/code/dotfiles` and is linked into place by

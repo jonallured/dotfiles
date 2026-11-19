@@ -46,7 +46,7 @@
 	driver = bundle
 [push]
 	autoSetupRemote = true
-	default = upstream
+	default = simple
 [rebase]
 	autosquash = true
 [user]
