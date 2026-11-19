@@ -2,7 +2,7 @@
 
 * [ ] `$ brew upgrade bat fzf git heroku hokusai hub macvim the_silver_searcher tmux yarn`
 * [ ] `$ replug`
-* [ ] `$ asdf update && asdf plugin-update --all && asdf reshim`
+* [ ] `$ mise self-update && mise install && mise prune`
 * [ ] `$ gem update --system`
 * [ ] `$ npm install -g npm`
 * [ ] `$ nuke_modules`
