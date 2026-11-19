@@ -11,10 +11,6 @@ Host legion
   Hostname legion.local
   User jon
 
-Host mister-sinister
-  Hostname mister-sinister.local
-  User jon
-
 Host polaris
   Hostname polaris.local
   User dev
@@ -22,7 +18,3 @@ Host polaris
 Host psylocke
   Hostname psylocke.jon.zone
   User dev
-
-Host shadow-king
-  Hostname shadow-king.local
-  User jon
