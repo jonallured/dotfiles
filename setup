@@ -2,5 +2,4 @@
 
 set -ex
 
-op inject --force --in-file rcm/zsh/exports.template --out-file rcm/zsh/exports
 env RCRC=$HOME/code/dotfiles/rcm/rcrc rcup
