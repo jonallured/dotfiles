@@ -17,10 +17,15 @@ Then clone this repo and run the setup:
 $ ./setup
 ```
 
-This script builds the exports file with 1Password and then installs all the
-dotfiles. It uses the `rcrc` file to install all dotfiles, including the `rcrc`
-file itself. All subsequent commands use this configuration file, so it no
-longer has to be provided.
+This script points rcm at the `rcrc` file to install all dotfiles, including
+the `rcrc` file itself. All subsequent commands use this configuration file, so
+it no longer has to be provided.
+
+## Secrets
+
+Every `rcup` runs `rcm/hooks/pre-up/exports` first, which builds
+`rcm/zsh/exports` from `exports.template` with `op inject`. If `op` is missing
+or 1Password is locked, `rcup` stops and links nothing. `rcup -K` skips hooks.
 
 ## AWS
 

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+if ! command -v op >/dev/null 2>&1; then
+  echo "pre-up: op not found, install 1password-cli or run rcup -K" >&2
+  exit 1
+fi
+
+cd ../../zsh
+op inject --force --in-file exports.template --out-file exports
