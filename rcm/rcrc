@@ -3,3 +3,8 @@
 DOTFILES_DIRS="$HOME/code/dotfiles/rcm"
 EXCLUDES="canary rcm/zsh/exports.template"
 SYMLINK_DIRS="bundle vim zsh"
+
+case "$(uname -s)" in
+  Darwin) TAGS="macos" ;;
+  Linux) TAGS="linux" ;;
+esac

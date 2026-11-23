@@ -26,14 +26,11 @@ longer has to be provided.
 
 `~/.aws/config` reads its keys from 1Password via `bin/aws-op-creds`.
 
-## Install on a server
+## Tags
 
-I use tags to modify my dotfiles slightly for a Mac vs Server environment so
-provide the `linux` tag when installing on a server:
-
-```
-$ ./setup linux
-```
+`rcrc` picks the rcm tag from `uname`: `macos` on a Mac and `linux` on a
+server, so `rcup` links the right `tag-*` files without a `-t` flag. Pass
+`-t` to override it for a single run.
 
 [rcm]: https://github.com/thoughtbot/rcm
 [op]: https://developer.1password.com/docs/cli

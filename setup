@@ -2,6 +2,5 @@
 
 set -ex
 
-rc_tag=${1:-macos}
 op inject --force --in-file rcm/zsh/exports.template --out-file rcm/zsh/exports
-env RCRC=$HOME/code/dotfiles/rcm/rcrc rcup -t $rc_tag
+env RCRC=$HOME/code/dotfiles/rcm/rcrc rcup
