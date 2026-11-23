@@ -2,7 +2,7 @@
 
 set -ex
 
-brew upgrade awscli bat fzf gh git heroku hokusai httpie hub jo jq macvim the_silver_searcher tmux yarn zsh-completions
+brew upgrade awscli bat fzf gh git glow heroku hokusai httpie hub jo jq macvim the_silver_searcher tmux yarn zsh-completions
 
 mise self-update --yes
 mise install
