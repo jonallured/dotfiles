@@ -1,6 +1,6 @@
 ## Terminal Stuff
 
-* [ ] `$ brew upgrade bat fzf git heroku hokusai hub macvim the_silver_searcher tmux yarn`
+* [ ] `$ brew upgrade bat fzf git glow heroku hokusai hub macvim the_silver_searcher tmux yarn`
 * [ ] `$ replug`
 * [ ] `$ mise self-update && mise install && mise prune`
 * [ ] `$ gem update --system`
