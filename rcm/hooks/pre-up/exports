@@ -8,4 +8,4 @@ if ! command -v op >/dev/null 2>&1; then
 fi
 
 cd ../../zsh
-op inject --force --in-file exports.template --out-file exports
+op inject --force --in-file exports.template --out-file exports >/dev/null
